@@ -1,0 +1,50 @@
+﻿<Properties StartupConfiguration="{52978EC2-08B0-4424-85B4-13EC01CB1BE0}|Default">
+  <MonoDevelop.Ide.ItemProperties.MyBank PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../BankingTest/UnitTest1.cs">
+    <Files>
+      <File FileName="Program.cs" Line="9" Column="10" />
+      <File FileName="../BankLibrary/BankAccount.cs" Line="84" Column="1" />
+      <File FileName="../BankLibrary/Transaction.cs" Line="14" Column="14" />
+      <File FileName="../BankingTest/UnitTest1.cs" Line="39" Column="21" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MyBank" expanded="True">
+            <Node name="BankingTest" expanded="True" />
+            <Node name="BankLibrary" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+            </Node>
+            <Node name="MyBank" expanded="True" selected="True">
+              <Node name="Dependencies" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>account</Value>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="MyBank" expanded="True">
+            <Node name="BankingTest" expanded="True">
+              <Node name="BankingTest" expanded="True">
+                <Node name="BasicTest" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint conditionExpression="amount &gt; 70" file="/Users/erickgonzalez/Documents/Programs/tutorials/MyBank/BankAccount.cs" relfile="BankAccount.cs" line="67" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+</Properties>

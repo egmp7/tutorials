@@ -1,0 +1,8 @@
+/Users/erickgonzalez/Documents/Programs/tutorials/MyBank/bin/Release/netcoreapp3.1/publish/MyBank
+/Users/erickgonzalez/Documents/Programs/tutorials/MyBank/bin/Release/netcoreapp3.1/publish/MyBank.dll
+/Users/erickgonzalez/Documents/Programs/tutorials/MyBank/bin/Release/netcoreapp3.1/publish/MyBank.deps.json
+/Users/erickgonzalez/Documents/Programs/tutorials/MyBank/bin/Release/netcoreapp3.1/publish/MyBank.runtimeconfig.json
+/Users/erickgonzalez/Documents/Programs/tutorials/MyBank/bin/Release/netcoreapp3.1/publish/MyBank.pdb
+/Users/erickgonzalez/Documents/Programs/tutorials/MyBank/bin/Release/netcoreapp3.1/publish/Humanizer.dll
+/Users/erickgonzalez/Documents/Programs/tutorials/MyBank/bin/Release/netcoreapp3.1/publish/BankLibrary.dll
+/Users/erickgonzalez/Documents/Programs/tutorials/MyBank/bin/Release/netcoreapp3.1/publish/BankLibrary.pdb

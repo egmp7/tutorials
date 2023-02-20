@@ -1,0 +1,10 @@
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/bin/Release/netstandard2.1/BankLibrary.deps.json
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/bin/Release/netstandard2.1/BankLibrary.dll
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/bin/Release/netstandard2.1/BankLibrary.pdb
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/obj/Release/netstandard2.1/BankLibrary.csproj.AssemblyReference.cache
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/obj/Release/netstandard2.1/BankLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/obj/Release/netstandard2.1/BankLibrary.AssemblyInfoInputs.cache
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/obj/Release/netstandard2.1/BankLibrary.AssemblyInfo.cs
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/obj/Release/netstandard2.1/BankLibrary.csproj.CoreCompileInputs.cache
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/obj/Release/netstandard2.1/BankLibrary.dll
+/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/obj/Release/netstandard2.1/BankLibrary.pdb

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "gkDMdi5uME50CirilkbIcmobIEgdhLHDr5rEr0muLkKbRm4PcshiWkrgG/Btun/MQos5VKOR8+0S2BKyzgTmVg==",
+  "success": true,
+  "projectFilePath": "/Users/erickgonzalez/Documents/Programs/tutorials/BankLibrary/BankLibrary.csproj",
+  "expectedPackageFiles": [
+    "/Users/erickgonzalez/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512"
+  ],
+  "logs": []
+}
