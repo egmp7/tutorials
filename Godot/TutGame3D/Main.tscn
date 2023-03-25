@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg34v1xg51u5l"]
+[gd_scene load_steps=12 format=3 uid="uid://cg34v1xg51u5l"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_0opll"]
 [ext_resource type="PackedScene" uid="uid://ck8jrgcythk71" path="res://Player.tscn" id="1_m4gg5"]
 [ext_resource type="PackedScene" uid="uid://d3re1m6kor87p" path="res://Mob.tscn" id="2_3qjpy"]
+[ext_resource type="FontFile" uid="uid://d4iknbe2larvn" path="res://fonts/Montserrat-Medium.ttf" id="4_fks7f"]
+[ext_resource type="Script" path="res://ScoreLabel.gd" id="5_pqss7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jnpm1"]
 size = Vector3(60, 2, 60)
@@ -22,6 +24,10 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="Theme" id="Theme_dhipu"]
+default_font = ExtResource("4_fks7f")
+default_font_size = 22
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0opll")
@@ -80,6 +86,50 @@ size = 19.0
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 48.0
+offset_right = 139.0
+offset_bottom = 74.0
+theme = SubResource("Theme_dhipu")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: 0"
+script = ExtResource("5_pqss7")
+
+[node name="Retry" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.192157)
+
+[node name="Label" type="Label" parent="UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -13.0
+offset_right = 75.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_fks7f")
+text = "Press Enter to retry"
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
