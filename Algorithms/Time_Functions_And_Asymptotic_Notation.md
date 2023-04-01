@@ -79,7 +79,7 @@ $\Theta(n^2\log(n))$
 
 $f(n)=n!$
 
-$1x1x1...x1$
+$1\times 1\times 1...\times 1$
 $\leq$ 
 $1x2x3...xn$
 $\leq$
