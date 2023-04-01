@@ -23,27 +23,37 @@ $f(n)=2n^2+3n+4$
 
 <br>
 
-### $ O $ Big-O 
+### $O$ Big-O 
 
-$2n^2+3n+4$&emsp;$\leq$&emsp;$2n^2+3n^2+4n^2$
+$2n^2+3n+4$&emsp;
+$\leq$&emsp;
+$2n^2+3n^2+4n^2$
 
-$2n^2+3n+4$&emsp;$\leq$&emsp;$9n^2$
+$2n^2+3n+4$&emsp;
+$\leq$&emsp;
+$9n^2$
 
 $f(n)=O(n^2)$
 
 <br>
 
-### $ \Omega $ Big-Omega
+### $\Omega$ Big-Omega
 
-$2n^2+3n+4$&emsp;$\geq$&emsp;$1*n^2$
+$2n^2+3n+4$&emsp;
+$\geq$&emsp;
+$1*n^2$
 
-$f(n) = \Omega (n^2)$
+$f(n)=\Omega(n^2)$
 
 <br>
 
-### $ \Theta $ Theta
+### $\Theta$ Theta
 
-$1*n^2$&emsp;$\leq$&emsp;$2n^2+3n+4$&emsp;$\leq$&emsp;$9n^2$
+$1*n^2$&emsp;
+$\leq$&emsp;
+$2n^2+3n+4$&emsp;
+$\leq$&emsp;
+$9n^2$
 
 $f(n)=\Theta(n^2)$
 
@@ -53,11 +63,15 @@ $f(n)=\Theta(n^2)$
 
 $f(n)=n^2\log(n)+n$
 
-$1*n^2\log(n)$&emsp;$\leq$&emsp;$n^2\log(n)+n$&emsp;$\leq$&emsp;$10n^2\log(n)$
+$1*n^2\log(n)$&emsp;
+$\leq$&emsp;
+$n^2\log(n)+n$&emsp;
+$\leq$&emsp;
+$10n^2\log(n)$
 
-$O(n^2\log(n))$ &emsp;
-$\Omega (n^2\log(n))$ &emsp;
-$\Theta (n^2\log(n))$ &emsp;
+$O(n^2\log(n))$&emsp;
+$\Omega(n^2\log(n))$ &emsp;
+$\Theta(n^2\log(n))$
 
 <br>
 
@@ -65,7 +79,11 @@ $\Theta (n^2\log(n))$ &emsp;
 
 $f(n)=n!$
 
-$1*1*1... *1\leq 1*2*3... *n\leq n*n*n...*n$
+$1*1*1...*1$
+$\leq$ 
+$1*2*3...*n$
+$\leq$
+$n*n*n...*n$
 
 $1\leq n!\leq n^n$
 
