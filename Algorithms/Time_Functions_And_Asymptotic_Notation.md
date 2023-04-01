@@ -176,3 +176,16 @@ $f(n)=n$,&emsp;
 $g(n)=n^2$
 
 $n$ is $O(n^2)$ and $n^2$ is $\Omega(n)$
+
+# Comparison of Functions
+
+Use test values for comparing
+
+### Example:
+
+$f(n)=n^2$&emsp;
+$g(n)=n^3$&emsp;
+$f(2)=4$&emsp;  
+$g(2)=8$&emsp;
+$f(3)=9$&emsp;  
+$g(3)=27$&emsp;
