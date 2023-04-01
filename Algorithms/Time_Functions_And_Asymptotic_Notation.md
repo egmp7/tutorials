@@ -1,12 +1,12 @@
 # Types of Time Functions
 
-- $O(1)$&emsp;&emsp;&emsp;&emsp;&emsp;-> Constant
-- $O(log(n))$&emsp;&emsp; -> Logarithmic 
+- $O(1)$ -> Constant
+- $O(log(n)) -> Logarithmic 
 - $O(\sqrt n)$
-- $O(n)$ &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;-> Linear
+- $O(n)$ -> Linear
 - $O(n(log(n)))$
-- $O(n^2)$ &nbsp;&nbsp;  -> Quadratic
-- $O(n^3)$ &nbsp;&nbsp;  -> Exponential,
+- $O(n^2)$ -> Quadratic
+- $O(n^3)$ -> Exponential,
 - $O(2^n)$
 - $O(3^n)$
 - $O(n^n)$
@@ -20,8 +20,6 @@
 ## Example 1
 
 $f(n)=2n^2+3n+4$
-
-<br>
 
 ### $O$ Big-O 
 
@@ -79,11 +77,11 @@ $\Theta(n^2\log(n))$
 
 $f(n)=n!$
 
-$1\times 1\times 1..\times 1$
+$1\times 1\times 1\ldots\times 1$
 $\leq$ 
-$1\times 2\times 3..\times n$
+$1\times 2\times 3\ldots\times n$
 $\leq$
-$n\times n\times n..\times n$
+$n\times n\times n\ldots\times n$
 
 $1\leq n!\leq n^n$
 
@@ -97,12 +95,15 @@ $\Theta$ does not exist for this function
 
 $f(n)=log(n!)$
 
-$log(1\times 1\times 1..\times 1)\leq
-\log(1\times 2\times 3..\times n)\leq\log(n\times n\times n..\times n)$
+$\log(1\times 1\times 1\ldots\times 1)\leq
+\log(1\times 2\times 3\ldots\times n)\leq
+\log(n\times n\times n\ldots\times n)$
 
 $1\leq\log(n!)\leq n\times log(n)$
 
-$\Omega(1)$&emsp;$O(n\times log(n))$&emsp;$\Theta$ does not exist for this function
+$\Omega(1)$&emsp;
+$O(n\times log(n))$&emsp;
+$\Theta$ does not exist for this function
 
 <br>
 
@@ -169,7 +170,7 @@ If $f(n)=O(g(n))$, then $g(n)$ is $\Theta(f(n))$
 
 ### Example:
 
-$f(n) = n $,&emsp; 
+$f(n)=n$,&emsp; 
 $g(n)=n^2$
 
 $n$ is $O(n^2)$ and $n^2$ is $\Omega(n)$
