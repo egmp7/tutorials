@@ -79,11 +79,11 @@ $\Theta(n^2\log(n))$
 
 $f(n)=n!$
 
-$\1*\1*\1 ... *\1$
+$1x1x1...x1$
 $\leq$ 
-$1*2*3 ... *n$
+$1x2x3...xn$
 $\leq$
-$n*n*n ... *n$
+$nxnxn...xn$
 
 $1\leq n!\leq n^n$
 
