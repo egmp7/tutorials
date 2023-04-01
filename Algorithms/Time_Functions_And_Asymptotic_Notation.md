@@ -49,7 +49,7 @@ $f(n)=\Omega(n^2)$
 
 ### $\Theta$ Theta
 
-$1*n^2$&emsp;
+$1\times n^2$&emsp;
 $\leq$&emsp;
 $2n^2+3n+4$&emsp;
 $\leq$&emsp;
@@ -63,7 +63,7 @@ $f(n)=\Theta(n^2)$
 
 $f(n)=n^2\log(n)+n$
 
-$1*n^2\log(n)$&emsp;
+$1\times n^2\log(n)$&emsp;
 $\leq$&emsp;
 $n^2\log(n)+n$&emsp;
 $\leq$&emsp;
@@ -79,15 +79,17 @@ $\Theta(n^2\log(n))$
 
 $f(n)=n!$
 
-$1\times 1\times 1...\times 1$
+$1\times 1\times 1..\times 1$
 $\leq$ 
-$1x2x3...xn$
+$1\times 2\times 3..\times n$
 $\leq$
-$nxnxn...xn$
+$n\times n\times n..\times n$
 
 $1\leq n!\leq n^n$
 
-$\Omega(1)$&emsp;$O(n^n)$&emsp;$\Theta$ does not exist for this function
+$\Omega(1)$&emsp;
+$O(n^n)$&emsp;
+$\Theta$ does not exist for this function
 
 <br>
 
@@ -95,11 +97,12 @@ $\Omega(1)$&emsp;$O(n^n)$&emsp;$\Theta$ does not exist for this function
 
 $f(n)=log(n!)$
 
-$log(1*1*1... *1)\leq\log(1*2*3... *n)\leq\log(n*n*n... *n)$
+$log(1\times 1\times 1..\times 1)\leq
+\log(1\times 2\times 3..\times n)\leq\log(n\times n\times n..\times n)$
 
-$1\leq\log(n!)\leq n*log(n)$
+$1\leq\log(n!)\leq n\times log(n)$
 
-$\Omega(1)$&emsp;$O(n*log(n))$&emsp;$\Theta$ does not exist for this function
+$\Omega(1)$&emsp;$O(n\times log(n))$&emsp;$\Theta$ does not exist for this function
 
 <br>
 
@@ -107,15 +110,15 @@ $\Omega(1)$&emsp;$O(n*log(n))$&emsp;$\Theta$ does not exist for this function
 
 ## General Property
 
-If $f(n)$ is $O(g(n))$ then $a*f(n)$ is $O(g(n))$ 
+If $f(n)$ is $O(g(n))$ then $a\times f(n)$ is $O(g(n))$ 
 
 ### Example:
 
 $f(n)=2n^2+5$ is $O(n^2)$
 
-then $7*f(n)=7(2n^2+5)$
+then $7\times f(n)=7\times (2n^2+5)$
 
-$7*f(n)=14n^2+35$ is $O(n^2)$
+$7\times f(n)=14n^2+35$ is $O(n^2)$
 
 The big O repeats if the function is multiplied by seven. This also works for all three notations.
 
@@ -123,7 +126,7 @@ The big O repeats if the function is multiplied by seven. This also works for al
 
 ## Reflexive Property
 
-If $f(n)$ is given, then $a*f(n)$ is $O(f(n))$ 
+If $f(n)$ is given, then $a\times f(n)$ is $O(f(n))$ 
 
 ### Example:
 
@@ -149,7 +152,8 @@ If $f(n)$ is $\Theta(g(n))$, then $g(n)$ is $\Theta(f(n))$
 
 ### Example:
 
-$f(n)=n^2$,&emsp;$g(n)=n^2$ 
+$f(n)=n^2$,&emsp;
+$g(n)=n^2$ 
 
 $f(n)=\Theta(n^2)$
 
@@ -165,6 +169,7 @@ If $f(n)=O(g(n))$, then $g(n)$ is $\Theta(f(n))$
 
 ### Example:
 
-$f(n) = n $, &emsp; $ g(n) = n^2 $
+$f(n) = n $,&emsp; 
+$g(n)=n^2$
 
 $n$ is $O(n^2)$ and $n^2$ is $\Omega(n)$
