@@ -96,9 +96,11 @@ $\Theta$ does not exist for this function
 $f(n)=log(n!)$
 
 $\log (1\times 1\times 1\ldots\times 1)$
+$\leq$
+$\log (1\times 2\times 3\ldots\times n)$
 
 $\log (1\times 1\times 1\ldots\times 1)\leq
-\log (1\times 2\times 3\ldots\times n)\leq
+\leq
 \log (n\times n\times n\ldots\times n)$
 
 $1\leq\log(n!)\leq n\times log(n)$
