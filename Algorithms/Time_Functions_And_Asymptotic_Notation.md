@@ -95,7 +95,7 @@ $\Theta$ does not exist for this function
 
 $f(n)=log(n!)$
 
-$\log (10)$
+$\log (1\times 1\times 1\ldots\times 1)$
 
 $\log (1\times 1\times 1\ldots\times 1)\leq
 \log (1\times 2\times 3\ldots\times n)\leq
