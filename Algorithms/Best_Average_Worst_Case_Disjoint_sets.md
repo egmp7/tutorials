@@ -11,3 +11,11 @@
 Note: Average case is not always possible to find
 
 ![Average Case for Linear Search Algorithm](/Algorithms/assets/Average_Case.png)
+
+# Analysis of Binary Search Algorithm
+
+![ Analysis of binary Search Algorithm](/Algorithms/assets/binarySearch.png)
+
+# Disjoint Sets
+
+Disjoints sets are sets that do not have elements in common
