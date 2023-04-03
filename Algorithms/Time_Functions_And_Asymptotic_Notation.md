@@ -198,7 +198,30 @@ Another method is applying log on both sides
 
 ### Example:
 
-$f(n)=log(n^2)$&emsp;
+$f(n)=log(n^2)$&emsp;;&emsp;
 $g(n)=log(n^3)$
 
-$2log(n)<3log(n)$ 
+$2\times log(n)<3\times log(n)$ 
+
+<br>
+
+## Example 1:
+
+$f(n)=n^2\times log(n)$&emsp;;&emsp;
+$g(n)=n\times log(n)^{10}$
+
+Apply log
+
+$f(n)=log[n^2\times log(n)]$&emsp;;&emsp;
+$g(n)=log[n\times log(n)^{10}]$
+
+$f(n)=log(n^2)+log(log(n))$&emsp;;&emsp;
+$g(n)=log(n)+log(log(n)^{10})$
+
+$f(n)=2log(n)+log(log(n))$&emsp;;&emsp;
+$g(n)=log(n)+10log(log(n))$
+
+$f(n)>$
+$g(n)$
+
+$2log(n)$ is bigger than $log(n)$
