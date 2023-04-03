@@ -179,13 +179,26 @@ $n$ is $O(n^2)$ and $n^2$ is $\Omega(n)$
 
 # Comparison of Functions
 
-Use test values for comparing
+Use test values for comparing and check which one grows faster than the other one.
 
 ### Example:
 
 $f(n)=n^2$&emsp;
-$g(n)=n^3$&emsp;
-$f(2)=4$&emsp;  
-$g(2)=8$&emsp;
-$f(3)=9$&emsp;  
-$g(3)=27$&emsp;
+$g(n)=n^3$
+
+$f(2)=4$&emsp;
+$g(2)=8$
+
+$f(3)=9$&emsp;
+$g(3)=27$
+
+Another method is applying log on both sides
+
+![Logarithmic functions](/Algorithms/assets/Log_Formulas.png)
+
+### Example:
+
+$f(n)=log(n^2)$&emsp;
+$g(n)=log(n^3)$
+
+$2log(n)<3log(n)$ 
