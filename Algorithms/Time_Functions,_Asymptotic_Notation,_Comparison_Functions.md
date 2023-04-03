@@ -288,3 +288,32 @@ $g(n)=\sqrt{n}\times log(n)$
 
 $f(n)<$
 $g(n)$
+
+## Example 5:
+
+$f(n)=2n$&emsp;;&emsp;
+$g(n)=3n$
+
+$f(n)=$
+$g(n)$
+
+Asymptotic equal
+
+## Example 6:
+
+$f(n)=2^n$&emsp;;&emsp;
+$g(n)=2^{2n}$
+
+Apply log
+
+$f(n)=log(2^n)$&emsp;;&emsp;
+$g(n)=log(2^{2n})$
+
+$f(n)=n\times log(2)$&emsp;;&emsp;
+$g(n)=2n\times log(2)$
+
+$f(n)=n$&emsp;;&emsp;
+$g(n)=2n$
+
+$f(n)<$
+$g(n)$
