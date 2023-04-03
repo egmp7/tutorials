@@ -225,3 +225,20 @@ $f(n)>$
 $g(n)$
 
 $2log(n)$ is bigger than $log(n)$
+
+## Example 2:
+
+$f(n)=3n^{\sqrt n}$&emsp;;&emsp;
+$g(n)=2^{\sqrt{n}\times log_2(n)}$
+
+$f(n)=3n^{\sqrt n}$&emsp;;&emsp;
+$g(n)=2^{log_2(n^{\sqrt{n}})}$
+
+$f(n)=3n^{\sqrt n}$&emsp;;&emsp;
+$g(n)=(n^{\sqrt{n}})^{log_2(2)}$
+
+$f(n)=3n^{\sqrt n}$&emsp;;&emsp;
+$g(n)=n^{\sqrt{n}}$
+
+$f(n)>$
+$g(n)$
