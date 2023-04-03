@@ -242,3 +242,49 @@ $g(n)=n^{\sqrt{n}}$
 
 $f(n)>$
 $g(n)$
+
+## Example 3:
+
+$f(n)=n^{log(n)}$&emsp;;&emsp;
+$g(n)=2^{\sqrt{n}}$
+
+Apply log
+
+$f(n)=log(n^{log(n)})$&emsp;;&emsp;
+$g(n)=log(2^{\sqrt{n}})$
+
+$f(n)=log(n)\times log(n)$&emsp;;&emsp;
+$g(n)=\sqrt{n}\times log_2(2)$
+
+$f(n)=log^2(n)$&emsp;;&emsp;
+$g(n)=\sqrt{n}$
+
+Apply log again
+
+$f(n)=log(log^2(n))$&emsp;;&emsp;
+$g(n)=log(\sqrt{n})$
+
+$f(n)=2log(n)$&emsp;;&emsp;
+$g(n)=log(n)/2$
+
+$f(n)<$
+$g(n)$
+
+## Example 4:
+
+$f(n)=2^{log(n)}$&emsp;;&emsp;
+$g(n)=n^{\sqrt{n}}$
+
+Apply log
+
+$f(n)=log(2^{log(n)})$&emsp;;&emsp;
+$g(n)=log(n^{\sqrt{n}})$
+
+$f(n)= log(n)\times log(2)$&emsp;;&emsp;
+$g(n)=\sqrt{n}\times log(n)$
+
+$f(n)= log(n)$&emsp;;&emsp;
+$g(n)=\sqrt{n}\times log(n)$
+
+$f(n)<$
+$g(n)$
