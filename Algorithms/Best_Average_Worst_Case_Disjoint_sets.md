@@ -18,4 +18,12 @@ Note: Average case is not always possible to find
 
 # Disjoint Sets
 
-Disjoints sets are sets that do not have elements in common
+Disjoints sets are sets that do not have elements in common.
+2 Operations are valid: Find and Union
+
+![  Disjoint Sets](/Algorithms/assets/disjointSets.png)
+
+## Example: 
+
+![ Disjoint Sets Example p1](/Algorithms/assets/disjointSetsExampleP1.png)
+![ Disjoint Sets Example p2](/Algorithms/assets/disjointSetsExampleP2.png)
