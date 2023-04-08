@@ -4,6 +4,8 @@ Break a problem into many sub-problems. Each problem must have the same task as 
 
 # Recurrence Relation
 
+![ Recurrence Relations Example](/Algorithms/assets/recurrenceRelations10.png)
+
 This image shows how to analyze time complexity of a recurrence function using a recurrence tree. In this case the time complexity is O(n)
 
 ![ Recurrence Relations Example](/Algorithms/assets/recurrenceRelations.png)
@@ -40,3 +42,17 @@ Solved by induction
 ![ Recurrence Relations Example](/Algorithms/assets/recurrenceRelations8.png)
 
 ![ Recurrence Relations Example](/Algorithms/assets/recurrenceRelations9.png)
+
+## Example 4: $T(n)=2T(n-1)+1$
+
+Solved by tree method
+
+![ Recurrence Relations Example](/Algorithms/assets/recurrenceRelations11.png)
+
+![ Recurrence Relations Example](/Algorithms/assets/recurrenceRelations12.png)
+
+Solved by induction
+
+![ Recurrence Relations Example](/Algorithms/assets/recurrenceRelations13.png)
+
+![ Recurrence Relations Example](/Algorithms/assets/recurrenceRelations14.png)
