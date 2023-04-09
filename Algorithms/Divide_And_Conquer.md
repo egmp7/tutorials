@@ -106,7 +106,7 @@ Solved By Induction
 
 ## Examples Case 2
 
-![Master Theorem](/Algorithms/assets/masterTheore11.png)
+![Master Theorem](/Algorithms/assets/masterTheorem11.png)
 
 ## Examples Case 3
 
