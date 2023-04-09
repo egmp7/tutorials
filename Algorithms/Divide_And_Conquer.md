@@ -60,7 +60,7 @@ Solved by induction
 
 ![Master Theorem](/Algorithms/assets/masterTheorem.png)
 
-# Dividing Functions
+# Recurrence Relation Dividing Functions
 
 Dividing function happens when n is divided by a constant bigger than 1
 
@@ -83,4 +83,32 @@ Solved by tree method
 Solved by induction
 
 ![Master Theorem](/Algorithms/assets/masterTheorem4.png)
+
+## $T(n)=2T(n/2)+n$
+
+Solved By tree method
+
+![Master Theorem](/Algorithms/assets/masterTheorem5.png)
+
+Solved By Induction
+
+![Master Theorem](/Algorithms/assets/masterTheorem6.png)
+
+![Master Theorem](/Algorithms/assets/masterTheorem7.png)
+
+# Master Theorem for dividing functions
+
+![Master Theorem](/Algorithms/assets/masterTheorem8.png)
+
+## Examples Case 1
+
+![Master Theorem](/Algorithms/assets/masterTheorem9.png)
+
+## Examples Case 2
+
+![Master Theorem](/Algorithms/assets/masterTheore11.png)
+
+## Examples Case 3
+
+![Master Theorem](/Algorithms/assets/masterTheorem10.png)
 
