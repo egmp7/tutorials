@@ -112,3 +112,6 @@ Solved By Induction
 
 ![Master Theorem](/Algorithms/assets/masterTheorem10.png)
 
+# Recurrence Relation Root function
+
+![Master Theorem](/Algorithms/assets/masterTheorem12.png)
