@@ -1,7 +1,3 @@
-# Main Concept
-
-Break a problem into many sub-problems. Each problem must have the same task as sorting an algorithm, each subproblem must sort an algorithm.
-
 # Recurrence Relation Decreasing functions
 
 ![ Recurrence Relations Example](/Algorithms/assets/recurrenceRelations10.png)
