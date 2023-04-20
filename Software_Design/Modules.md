@@ -83,3 +83,7 @@ One module can completely change the flow of another module.
 Only very small use case (e.g. live sound performance using coding)
 
 ![cohesion](/Software_Design/assets/coupling8.png)
+
+# Programming Techniques & Language Features
+
+Programming techniques relate to the way you structure and organize the code and the choices you make about control flow and data. Language features are related and interact with programming techniques but they can be used to more strongly control how programmers work with your modules. 
