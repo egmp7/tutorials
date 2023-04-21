@@ -32,3 +32,7 @@ Check that an error crashes a program, or does something desirable.
 
 During error handling testing, it's important that the programme actually reaches the error handling code, and doesn't simply crash. The reported error matches the actual error encountered. All errors are intelligible.
 
+# Python unit testing link
+
+[Python unit testing](https://docs.python.org/3/library/unittest.html)
+
