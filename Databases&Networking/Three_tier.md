@@ -67,3 +67,17 @@ Response headers apply specifically to responses and not to requests. For instan
 
 ## Entity Headers
 Entity headers apply to the content transferred in the body of the request or response. 2 For example, the Content-Length header specifies the number of bytes associated with the body of the request
+
+# Three tier web application architecture
+
+Three-tier architecture is a client server architecture in which the user interface, application logic and data storage are developed, and maintained as independent modules
+
+![](/Databases&Networking/assets/4.png)
+
+The core principle of three-tier architecture is to provide an intermediate layer between the client and the data tier which centralizes middleware services and the business logic of the application
+
+The presentation tier is sometimes called the front end. The application tier is referred to as the middleware and the database tier is called the back end
+
+The front end or presentation tier is on the client side, and the application and data tiers or middleware and back end are on their server side
+
+![](/Databases&Networking/assets/5.png)
