@@ -19,3 +19,13 @@ def getMin(vals):
         if x < min:
             min = x
     return min
+
+def median (vals):
+    mid = len(vals)/2
+    intMid = int(mid)
+    if (mid - intMid) == 0:
+        return (vals[intMid] + vals[intMid - 1])/2
+    else:
+        return vals[intMid]
+
+
