@@ -100,3 +100,26 @@ In terms of space, only 1 due tu max variable
 ![](/Algorithms/UoL/assets/7.png)
 
 In terms of space, only 1 due tu i variable
+
+# Growth of functions
+
+There is no need to count every unit, instead just find the hight variable
+
+## Example
+
+![](/Algorithms/UoL/assets/9.png)
+
+![](/Algorithms/UoL/assets/8.png)
+
+![](/Algorithms/UoL/assets/10.png)
+
+# Worst & Best Cases
+
+Check the ways how an algorithm can return.
+
+Finding the max only has one case and its running time is N
+
+![](/Algorithms/UoL/assets/11.png)
+
+![](/Algorithms/UoL/assets/12.png)
+
