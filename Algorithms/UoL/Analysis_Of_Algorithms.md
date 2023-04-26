@@ -105,6 +105,10 @@ In terms of space, only 1 due tu i variable
 
 There is no need to count every unit, instead just find the hight variable
 
+The growth function can depend on the following factors: 
+
+![](/Algorithms/UoL/assets/13.png)
+
 ## Example
 
 ![](/Algorithms/UoL/assets/9.png)
@@ -123,3 +127,28 @@ Finding the max only has one case and its running time is N
 
 ![](/Algorithms/UoL/assets/12.png)
 
+# Asymptotic Notation
+
+## Big O Notation
+
+![](/Algorithms/UoL/assets/15.png)
+
+ Aims to find a function g (N) that acts as an upper bound for T(N)
+
+ A running time function described as being O(N) means the running time grows no faster than a linear function
+
+The horizontal axis represents the input data size, and the vertical axis represents the computational requirements of an algorithm.
+
+![](/Algorithms/UoL/assets/14.png)
+
+## Omega notation 
+
+Question 1
+A function described as being $\Omega(N^2)$ grows no slower than quadratically
+
+![](/Algorithms/UoL/assets/16.png)
+
+![](/Algorithms/UoL/assets/17.png)
+
+## Theta Notation
+find a function g of n that acts simultaneously as an upper and a lower bound for t of n
