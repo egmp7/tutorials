@@ -151,4 +151,7 @@ A function described as being $\Omega(N^2)$ grows no slower than quadratically
 ![](/Algorithms/UoL/assets/17.png)
 
 ## Theta Notation
+
 find a function g of n that acts simultaneously as an upper and a lower bound for t of n
+
+![](/Algorithms/UoL/assets/18.png)
