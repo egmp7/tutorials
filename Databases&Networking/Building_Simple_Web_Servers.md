@@ -28,4 +28,26 @@ The allocation of resources to your application and communication between hardwa
 
 ![](/Databases&Networking/assets/8.png)
 
+# Node JS
+
+Node JS is an asynchronous event-driven JavaScript runtime environment, Node.js is designed to build scalable network applications
+
+ -Open Source
+
+- Cross-platform
+
+- Runtime environment, it executes JavaScript code outside of a browser.
+
+![](/Databases&Networking/assets/9.png)
+
+# What is a module
+
+A module is essentially a set of functions and properties that you want to include in your application. Like a library; a set of functions or code written by you or someone else which you can import and
+export across your project.
+
+# What is Express
+
+Express is a very popular framework for Node.js designed for building web applications and APIs.
+Think of it as a module that you can require in your code and use it to create and maintain web
+servers. It is considered to be the standard server framework for Node.js.
 
