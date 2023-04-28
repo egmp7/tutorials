@@ -51,3 +51,7 @@ Express is a very popular framework for Node.js designed for building web applic
 Think of it as a module that you can require in your code and use it to create and maintain web
 servers. It is considered to be the standard server framework for Node.js.
 
+## Installing Express
+
+``` npm install express --save ```
+
