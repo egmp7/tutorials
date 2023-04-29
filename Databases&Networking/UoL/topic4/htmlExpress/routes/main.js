@@ -3,7 +3,7 @@ module.exports = function(app) {
     
         // dynamic page
         res.render("index.html", {
-        title: "index"
+            title: "index"
         });
     });
 
@@ -11,7 +11,7 @@ module.exports = function(app) {
     
         // dynamic page
         res.render("about.html", {
-        title: "About"
+            title: "About"
         });
     });
 
@@ -19,7 +19,24 @@ module.exports = function(app) {
     
         // dynamic page
         res.render("search.html", {
-        title: "search"
+            title: "search"
         });
+    });
+
+    app.get("/search-result", function (req, res) {
+        //searching in the database
+        res.send(req.query);
+    });
+
+    app.get("/register", function (req,res) {
+        res.render("register.html",{
+            title: "register"
+        });
+        
+    });
+
+    app.post("/registered", function (req,res) {
+    // saving data in database
+    res.send(req.body)
     });
 }
