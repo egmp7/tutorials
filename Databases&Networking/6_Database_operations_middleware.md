@@ -88,3 +88,5 @@ app.get("/list", function(req, res) {
 });
 ```
 
+# Passing variables to templates 
+
