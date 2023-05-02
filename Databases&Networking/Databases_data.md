@@ -82,15 +82,3 @@ SELECT name, price FROM books WHERE id=2;
 # Schema 
 
 A schema is a collection of related objects, including but not limited to base tables and views, domains, constraints, character sets, triggers, and roles.
-
-CREATE DATABASE student;
-Database Management System
-INSERT INTO Food VALUES ( 'Pizza', 6.25);
-Redundancy and multiple themes in the list create modification problems
-Structured Query Language
-To store data in the form of a list.
-Columns in tables represent the objects' fields
-SELECT name FROM virus;
-SELECT name, price FROM books WHERE price>25;
-DESCRIBE TableName;
-object, table
