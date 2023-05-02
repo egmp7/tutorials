@@ -46,9 +46,9 @@ module.exports = function(app) {
         // execute sql query
         db.query(sqlquery, (err, result) => {
             if (err) {
-            res.redirect("/");
+                res.redirect("/");
             }
-            res.send(result)
+            res.render("list.html", {availableBooks: result});
         });
     });
 }

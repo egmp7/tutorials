@@ -42,7 +42,7 @@ A primary key is a field or combination of fields in a table that uniquely ident
 
 ![](/Databases&Networking/assets/29.png)
 
-# Access databases from your Node web application Topic 6
+# Access databases from your Node web application
 
 ## Dependencies 
 
@@ -89,4 +89,28 @@ app.get("/list", function(req, res) {
 ```
 
 # Passing variables to templates 
+
+## Template iteration
+
+**Routes**
+```
+app.get("/list", function(req, res) {
+    // query database to get all the books
+    let sqlquery = "SELECT * FROM books";
+    // execute sql query
+    db.query(sqlquery, (err, result) => {
+        if (err) {
+            res.redirect("/");
+        }
+        res.render("list.html", {availableBooks: result});
+    });
+});
+```
+
+**html**
+```
+<% availableBooks.forEach(function(book){ %>
+    <li><%= book.name %>, £<%= book.price %></li>
+<% }) %>
+```
 
