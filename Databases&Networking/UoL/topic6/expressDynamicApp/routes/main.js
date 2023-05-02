@@ -51,4 +51,19 @@ module.exports = function(app) {
             res.render("list.html", {availableBooks: result});
         });
     });
+
+    app.post("/addbook", function (req,res) {
+        // saving data in database
+        let sqlquery = `INSERT INTO books (name, price) VALUES  (?,?)`;
+
+        // execute sql query
+        let newrecord = [req.body.name, req.body.price];
+
+        db.query(sqlquery, newrecord, (err, result) => {
+            if (err) {
+                return console.error(err.message);
+            }else
+            res.send(` This book is added to database, name: ${req.body.name} price: ${req.body.price}`);
+        });
+    });
 }
