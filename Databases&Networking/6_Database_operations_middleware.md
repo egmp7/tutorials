@@ -135,3 +135,29 @@ app.post("/addbook", function (req,res) {
 ```
 # Passing variables to templates and back-end
 
+**Routes**
+
+ app.get("/search-result-db", function (req, res) {
+    //searching in the database
+    let word = [req.query.keyword];
+    let sqlquery = "SELECT * FROM `books` WHERE name like ?";
+
+    // execute sql query
+    db.query(sqlquery,word, (err, result) => {
+
+        if (err) {
+            return console.error("No book found with the keyword you have entered" + req.query.keyword + "error: "+ err.message);
+            //res.redirect("./search"); this can also be used in case of an error instead of the above line
+        }
+
+        else{
+            res.render ('list.html',{availableBooks:result});
+        }
+    });
+});
+
+# Sanitization
+
+Input sanitization cleans the input data from malicious code such as SQL injection
+
+[Link to sanitization](https://www.npmjs.com/package/express-sanitizer)

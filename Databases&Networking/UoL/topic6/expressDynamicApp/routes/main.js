@@ -66,4 +66,30 @@ module.exports = function(app) {
             res.send(` This book is added to database, name: ${req.body.name} price: ${req.body.price}`);
         });
     });
+
+    app.get("/search-result-db", function (req, res) {
+        //searching in the database
+        let word = [req.query.keyword];
+        let sqlquery = "SELECT * FROM `books` WHERE name like ?";
+
+        // execute sql query
+        db.query(sqlquery,word, (err, result) => {
+
+            if (err) {
+                return console.error("No book found with the keyword you have entered" + req.query.keyword + "error: "+ err.message);
+                //res.redirect("./search"); this can also be used in case of an error instead of the above line
+            }
+
+            else{
+                //step 1:(this will only shows the collected form-data) for debugging purpose only
+                // res.send(req.query);
+                //step 2: (this shows keyword in collected form-data) for debugging purpose only
+                //res.send("This is the keyword you entered: "+ req.query.keyword+ ".<br><br>This is the result of the search:<br>");
+                //step3: (this will show the result of the search) for debugging purpose only
+                //res.send(result);
+                //step4: (this will show the result of the search using an ejs template file, list.ejs can be used here)
+                res.render ('list.html',{availableBooks:result});
+            }
+        });
+    });
 }
