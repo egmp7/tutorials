@@ -84,4 +84,34 @@ One post-incident review concluded that "This loss of information was due to spe
 
 ![](/Software_Design/assets/3.png)
 
+# Secure Programming 
+
+In many cases, it is not necessary to meet the protections needs of the person responsible for the information stored in the computer entirely through computer-aided enforcement. External mechanism such as contracts, ignorance, or barbed wire fences may provide some of the required functional capability. This discussion, however, is focused in the internal mechanism. 
+
+# Security Goals
+
+- Confidentiality (Who can see)
+
+- Integrity (Who can modify)
+
+- Availability (Can they access it)
+
+According to Wheeler, availability means 'the assets are accessible to the authorized parties in a timely manner'. So it means that the system is up and running and has the capacity to respond. So a denial of service attack affects availability. 
+
+# Security programming Hit list 
+
+- Validate all input. Don't trust anything that comes into the software that you haven't generated yourself
+
+- Restrict operation to buffer bounds
+
+- Follow good security design patterns 
+
+![](/Software_Design/assets/4.png)
+
+- Carefully call out to other resources
+
+![](/Software_Design/assets/5.png)
+
+- Send information back judiciously This one is all about being careful about what it is, you send back to the user. Your program might be privy to all kinds of information. Some of it may not belong to the user. You got to be really careful about what it is you sending back, and you might reveal information about your program and stuff like that.
+
 
