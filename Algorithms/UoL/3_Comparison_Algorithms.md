@@ -60,6 +60,42 @@ function SelectionSort ( A , N )
 end function 
 ```
 
+## Quick Sort
+
+Quicksort chooses a number, the pivot. All numbers lower than the pivot are restored to its left and all numbers higher than the pivot are stored to its right. In that way, after every call, the pivot is stored in its correct position.
+
+```
+def QuickSort( A , low , high ):
+    if (low < high):
+        p = partition ( A , low , high )
+        QuickSort( A , low , p-1 )
+        QuickSort( A , p+1 , high )
+```
+function **partition** 
+- Selects the pivot
+- Moves all number lower than the pivot to the left part of the array
+- Moves the pivot to its final position
+
+```
+def partition ( A, low , high):
+    i = low
+    while (low < high):
+        if (A[low] < A[high]):
+            exchange (low ,i)
+            i += 1 
+        low += 1 
+    exchange ( high , i)
+    return i
+```
+
+```
+def exchange(p1,p2):
+    temp = A[p1]
+    A[p1] = A[p2]
+    A[p2] = temp
+```
+
+
 # Non Comparison Algorithms
 
 - Counting sort
