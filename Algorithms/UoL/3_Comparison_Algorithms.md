@@ -77,6 +77,22 @@ function **partition**
 - Moves the pivot to its final position
 
 ```
+function partition(A,low,high)
+    elem=A[high]
+    i = low
+    for i ≤ j < high  
+        if A[j] ≤ elem  then
+            swap(A[i],A[j])
+            i = i + 1
+        end if
+    end for
+    swap(A[high],A[i])
+    return i
+end function
+```
+### Partition function complexity time: $Theta(N)$
+
+```
 def partition ( A, low , high):
     i = low
     while (low < high):
@@ -95,6 +111,53 @@ def exchange(p1,p2):
     A[p2] = temp
 ```
 
+## Merge Sort
+
+Merge sort, successively divides their array into halves, until we are left with only one element. When that happens, first of neighboring elements are merged in such a way that they are now sorted. This set of two sorted elements is then merged to another set of two sorted elements and so on
+
+There are many implementation for merge sort depending on :
+
+- data structure 
+- the implementation of the merge part of merge sort
+
+In this case we will use arrays and merge out of place
+
+```
+function MergeSort ( A , int l , int h ) 
+    if (l<h)
+        mid = l + floor ((h-l)/2)
+        MergeSort ( A , l , mid )
+        MergeSort ( A , mid+1 , h )
+        Merge (A , low , mid , h )
+```
+
+### Merge function complexity time  $Theta(N)$
+
+```
+function merge(A,low,mid,high)
+    for 0 <= i <=mid
+         B[i]=A[i]
+    for 0 <= i < (high-mid)
+         C[i]=A[i+mid+1]
+    i=0; j=0; k=0
+    while( i <=mid  AND  j<(h-mid) )
+        if(B[i]<C[j])
+            A[k]=B[i]
+            i=i+1
+        else
+            A[k]=C[j]
+            j=j+1
+        k=k+1
+    if(i>mid)
+         for j <= m < high-mid
+             A[k]=C[m]
+             k=k+1
+    if(j >= (high-mid) )
+         for i <= m <mid+1
+             A[k]=B[m]
+             k=k+1
+end function
+```
 
 # Non Comparison Algorithms
 
