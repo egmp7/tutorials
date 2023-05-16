@@ -159,8 +159,8 @@ function merge(A,low,mid,high)
 end function
 ```
 
-# Non Comparison Algorithms
+# Worst Case of comparison algorithms
 
-- Counting sort
-- Radix sort
-- Bucket sort
+![](/Algorithms/UoL/assets/24.png)
+
+![](/Algorithms/UoL/assets/25.png)
