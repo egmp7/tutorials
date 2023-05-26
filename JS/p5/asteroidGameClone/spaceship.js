@@ -68,5 +68,9 @@ class Spaceship {
 
   setNearEarth(){
     //YOUR CODE HERE (6 lines approx)
+    this.applyForce(createVector(0,0.05));
+    var friction = this.velocity.copy()
+    friction.mult(- 1/30)
+    this.applyForce(friction);
   }
 }

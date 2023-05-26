@@ -6,9 +6,11 @@ class AsteroidSystem {
     this.velocities = [];
     this.accelerations = [];
     this.diams = [];
+    this.difficulty = 0.01
   }
 
   run(){
+      this.calcDifficulty();
       this.spawn();
       this.move();
       this.draw();
@@ -16,7 +18,7 @@ class AsteroidSystem {
 
   // spawns asteroid at random intervals
   spawn(){
-    if (random(1)<0.01){
+    if (random(1)< this.difficulty){
       this.accelerations.push(new createVector(0,random(0.1,1)));
       this.velocities.push(new createVector(0, 0));
       this.locations.push(new createVector(random(width), 0));
@@ -64,5 +66,12 @@ class AsteroidSystem {
     this.velocities.splice(index,1);
     this.accelerations.splice(index,1);
     this.diams.splice(index,1);
+  }
+  
+  // function that increases the spawning of the asteroids
+  calcDifficulty(){
+    if(frameCount%600 ==0){
+      this.difficulty+= 0.005;
+    }
   }
 }

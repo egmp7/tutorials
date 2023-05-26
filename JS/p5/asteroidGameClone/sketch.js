@@ -5,17 +5,19 @@ var atmosphereSize;
 var earthLoc;
 var earthSize;
 var starLocs = [];
+var score;
 
 //////////////////////////////////////////////////
 function setup() {
-  createCanvas(1200,800);
+  createCanvas(1000,600);
   spaceship = new Spaceship();
   asteroids = new AsteroidSystem();
+  score = new Score();
 
   //location and size of earth and its atmosphere
-  atmosphereLoc = new createVector(width/2, height*2.9);
+  atmosphereLoc = new createVector(width/2, height*3.15);
   atmosphereSize = new createVector(width*3, width*3);
-  earthLoc = new createVector(width/2, height*3.1);
+  earthLoc = new createVector(width/2, height*3.35);
   earthSize = new createVector(width*3, width*3);
 }
 
@@ -24,12 +26,15 @@ function draw() {
   background(0);
   sky();
 
+  // TESTING
+  fill(255,0,0)
+  ellipse(spaceship.location.x,spaceship.location.y,spaceship.size)
+
   spaceship.run();
   asteroids.run();
+  score.draw();
 
   drawEarth();
-
-
   checkCollisions(spaceship, asteroids); // function that checks collision between various elements
 }
 
@@ -49,31 +54,33 @@ function drawEarth(){
 //checks collisions between all types of bodies
 function checkCollisions(spaceship, asteroids){
 
-    //spaceship-2-asteroid collisions
     //YOUR CODE HERE (2-3 lines approx)
     for( var i=0 ; i<asteroids.locations.length ; i++){
+      //spaceship-2-asteroid collisions
       if(isInside(asteroids.locations[i],asteroids.diams[i],spaceship.location,spaceship.size)) gameOver()
+      //asteroid-2-earth collisions
+      if(isInside(asteroids.locations[i],asteroids.diams[i],earthLoc,earthSize.x)) gameOver()
+      //bullet collisions
+      for( var j=0 ; j<spaceship.bulletSys.bullets.length ; j++){
+        if(isInside(asteroids.locations[i],asteroids.diams[i],spaceship.bulletSys.bullets[j],spaceship.bulletSys.diam)) {
+          asteroids.destroy(i)
+          score.add();
+        }
+      }
     }
-
-    //asteroid-2-earth collisions
-    //YOUR CODE HERE (2-3 lines approx)
-
     //spaceship-2-earth
-    //YOUR CODE HERE (1-2 lines approx)
-
+    if(isInside(spaceship.location,spaceship.size,earthLoc,earthSize.x)) gameOver()
     //spaceship-2-atmosphere
-    //YOUR CODE HERE (1-2 lines approx)
-
-    //bullet collisions
-    //YOUR CODE HERE (3-4 lines approx)
+    if(isInside(spaceship.location,spaceship.size,atmosphereLoc,atmosphereSize.x)) spaceship.setNearEarth()
 }
 
 //////////////////////////////////////////////////
 //helper function checking if there's collision between object A and object B
 function isInside(locA, sizeA, locB, sizeB){
     // YOUR CODE HERE (3-5 lines approx)
+    if (locB == undefined || locA == undefined || sizeB == undefined || sizeA == undefined) return false 
     if(dist(locA.x,locA.y,locB.x,locB.y) < (sizeA/2 + sizeB/2) ) return true;
-    else return false;
+    return false;
 }
 
 //////////////////////////////////////////////////
