@@ -20,6 +20,7 @@ var slingshotBird, slingshotConstraint;
 var angle=0;
 var angleSpeed=0;
 var canvas;
+var game;
 ////////////////////////////////////////////////////////////
 function setup() {
   canvas = createCanvas(1000, 600);
@@ -35,6 +36,8 @@ function setup() {
   setupSlingshot();
 
   setupMouseInteraction();
+
+  game =  new Game();
 }
 ////////////////////////////////////////////////////////////
 function draw() {
@@ -51,6 +54,8 @@ function draw() {
   drawBirds();
 
   drawSlingshot();
+
+  game.run();
 }
 ////////////////////////////////////////////////////////////
 //use arrow keys to control propeller
