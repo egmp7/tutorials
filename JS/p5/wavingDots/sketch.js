@@ -30,16 +30,41 @@ function draw(){
         phaseRatio = mouseX / width * 4;
         phaseAngle = ( frameCount + locX + locY ) * phaseRatio
 
+        // connecting dots
+        drawConnectingDots(x,y,noOfDots,size/2,phaseAngle)
+
         push()
         // animation effect
         translate(locX,locY)
         rotate(phaseAngle)
         // Create a wave
-        wave(10,10,size/2,c);
+        wave(size/2,size/2,size/2,c);
         pop()
       }
     }
     
+}
+
+function drawConnectingDots(x,y,noOfDots,size,phaseAngle){
+
+  var x1 = x * width / noOfDots;
+  var y1 = y * height / noOfDots;
+  var x2;
+  var y2;
+  push()
+  translate(size,size)
+
+  // vertical connecting lines
+  x2 = x * width / noOfDots;
+  y2 = y+1 * height / noOfDots;
+  line(x1,y1,x2,y2)
+
+  // horizontal connecting lines
+  x2 = x+1 * width / noOfDots;
+  y2 = y * height / noOfDots;
+  line(x1,y1,x2,y2)
+  pop()
+
 }
 
 
