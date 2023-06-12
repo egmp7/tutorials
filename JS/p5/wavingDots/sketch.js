@@ -27,17 +27,15 @@ function draw(){
         var c = color(colorRandom,0,colorRandom)
 
         // phase angle
-        phaseRatio = mouseX / width;
+        phaseRatio = mouseX / width * 4;
         phaseAngle = ( frameCount + locX + locY ) * phaseRatio
 
         push()
-        translate(cos(phaseAngle)* size,sin(phaseAngle)* size)
-        stroke(255,0,0)
+        // animation effect
+        translate(locX,locY)
+        rotate(phaseAngle)
         // Create a wave
-        wave( locX,
-              locY, 
-              size /2, 
-              c); 
+        wave(10,10,size/2,c);
         pop()
       }
     }
@@ -45,8 +43,7 @@ function draw(){
 }
 
 
-function wave(x,y,size,color) // replace params with the necessary parameters
-{
+function wave(x,y,size,color) {
  
   noStroke()
   fill(color)
