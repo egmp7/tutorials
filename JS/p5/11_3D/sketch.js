@@ -1,6 +1,12 @@
+var buffer;
+
 function setup() {
     createCanvas(900, 600, WEBGL);
-    angleMode(DEGREES)
+    noStroke();
+    angleMode(DEGREES);
+    buffer =  createGraphics(300,300);
+    buffer.background(255);
+    
     
 }
 
@@ -8,7 +14,23 @@ function draw() {
     background(125);
 
     //basics();
+    //camera();
 
+    
+    buffer.fill(255,0,255);
+    buffer.noStroke();
+    buffer.ellipse(random(buffer.width),random(buffer.height),10,10)
+
+
+    rotateY(frameCount);
+    texture(buffer);
+    box(200)
+    
+
+
+}
+
+function camera(){
     var zLoc = height + (sin(frameCount)+1)/2*100;
     camera(0,0,zLoc,0,0,0,0,1,0)
 
@@ -18,7 +40,7 @@ function draw() {
     rotateX(90)
     fill(200)
     plane(500,500)
-    
+
 }
 
 function basics(){
