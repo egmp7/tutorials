@@ -30,14 +30,17 @@ function draw() {
     }
     avgImg.loadPixels();
 
-    // iterate over image quadrant
+    // iterate each pixel
     for(var x = 0 ; x < imgs[0].width ; x ++){
         for(var y = 0 ; y < imgs[0].height ; y ++){
 
+            // index formula
+            var index = ((imgs[0].width * y) + x) * 4
+
+            // sum of channels
             var sumR = 0;
             var sumG = 0;
             var sumB = 0;
-            var index = ((imgs[0].width * y) + x) * 4
 
             for(var i = 0 ; i < numOfImages ; i++){
                 sumR += imgs[i].pixels[index + 0]
@@ -45,8 +48,11 @@ function draw() {
                 sumB += imgs[i].pixels[index + 2]
             }
 
-            var c = color(sumR/numOfImages,sumG/numOfImages,sumB/numOfImages);
-            avgImg.set(x,y,c);
+            // set avgImg pixels
+            avgImg.pixels[index + 0] = sumR/numOfImages;
+            avgImg.pixels[index + 1] = sumG/numOfImages;
+            avgImg.pixels[index + 2] = sumB/numOfImages;
+            avgImg.pixels[index + 3] = 255;
 
         }
     }
@@ -75,7 +81,7 @@ function mouseMoved(){
 }
 //////////////////////////////////////////////////////////
 function drawAvgImage(){
-    // iterate over image quadrant
+    // iterate each pixel
     for(var x = 0 ; x < imgs[0].width ; x ++){
         for(var y = 0 ; y < imgs[0].height ; y ++){
 
@@ -96,8 +102,11 @@ function drawAvgImage(){
                 avgImg.pixels[index+2],
                 ratio);
 
-            var c = color(redC,greenC,blueC);
-            avgImg.set(x,y,c);
+             // set avgImg pixels
+            avgImg.pixels[index + 0] = redC;
+            avgImg.pixels[index + 1] = greenC;
+            avgImg.pixels[index + 2] = blueC;
+            avgImg.pixels[index + 3] = 255;
 
         }
     }
