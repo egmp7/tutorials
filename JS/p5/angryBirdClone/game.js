@@ -18,17 +18,25 @@ class Game{
         if (boxes.length == 0) this.win()
     }
     drawStatus(){
-        text(this.time,width/2,90)
-        text(`Boxes ${boxes.length}`,width/2,140)
+        textSize(20);
+        fill(255)
+        var rightPadding = 200;
+        var topPadding = 50;
+        text(`Remaining time: ${this.time}`,width - rightPadding ,topPadding)
+        text(`Boxes: ${boxes.length}`,width - rightPadding,topPadding+25)
     }
 
     win(){
         noLoop()
-        text("YOU WIN",width/2,90)
+        textSize(40);
+        textAlign(CENTER);
+        text("YOU WIN",width/2,height/2)
     }
 
     gameOver(){
         noLoop()
+        textSize(40);
+        textAlign(CENTER);
         text("GAME OVER",width/2,90)
     }
 };

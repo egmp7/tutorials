@@ -24,11 +24,7 @@ function setup() {
 //////////////////////////////////////////////////
 function draw() {
   background(0);
-  sky();
-
-  // TESTING
-  fill(255,0,0)
-  ellipse(spaceship.location.x,spaceship.location.y,spaceship.size)
+  sky(); 
 
   spaceship.run();
   asteroids.run();
@@ -57,7 +53,7 @@ function checkCollisions(spaceship, asteroids){
     //YOUR CODE HERE (2-3 lines approx)
     for( var i=0 ; i<asteroids.locations.length ; i++){
       //spaceship-2-asteroid collisions
-      if(isInside(asteroids.locations[i],asteroids.diams[i],spaceship.location,spaceship.size)) gameOver()
+      if(isInside(asteroids.locations[i],asteroids.diams[i],spaceship.location,spaceship.size/2)) gameOver()
       //asteroid-2-earth collisions
       if(isInside(asteroids.locations[i],asteroids.diams[i],earthLoc,earthSize.x)) gameOver()
       //bullet collisions
