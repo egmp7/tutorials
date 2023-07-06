@@ -31,6 +31,20 @@ function draw() {
             rotate(radians(-speed *2))
             translate(100,0)
             celestialObj(color(255), 30);
+            
+                /**ASTEROID */
+                push()
+                rotate(radians(speed *3))
+                translate(35,0)
+                celestialObj(color(255,255,0), 15);
+                pop()
+            pop()
+
+            /** SECOND MOON */
+            push()
+            rotate(radians(-speed *2.5))
+            translate(130,70)
+            celestialObj(color(255,0,255), 30);
             pop()
         pop()
 
