@@ -1,4 +1,8 @@
+/** Create a game and calculates the time left, 
+ * if the game runs out of time, the game finish */
+
 class Game{
+    
     constructor(){
         this.time = 60;
     }
@@ -7,16 +11,20 @@ class Game{
         this.calculateTime();
         this.draw();
     }
+
+    // get remaining time
     calculateTime(){
         if(frameCount%60 == 0) this.time -= 1
     }
     draw(){
-        console.log(boxes.length)
         // remaining time
         if (this.time > 0) this.drawStatus()  
         else this.gameOver() 
+        // number of boxes
         if (boxes.length == 0) this.win()
     }
+
+    // draw Current Status
     drawStatus(){
         textSize(20);
         fill(255)
@@ -26,17 +34,21 @@ class Game{
         text(`Boxes: ${boxes.length}`,width - rightPadding,topPadding+25)
     }
 
+    // draws Win
     win(){
         noLoop()
         textSize(40);
         textAlign(CENTER);
+        fill(255)
         text("YOU WIN",width/2,height/2)
     }
 
+    // draws Game Over
     gameOver(){
         noLoop()
         textSize(40);
         textAlign(CENTER);
-        text("GAME OVER",width/2,90)
+        fill(255)
+        text("GAME OVER",width/2,height/2)
     }
 };
