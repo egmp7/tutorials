@@ -1,3 +1,27 @@
+/**
+ * Noise generation to create a blinking effect of the dots: 
+ * I used noise generation instead of a random function because 
+ * the noise has more control of the patterns to be drawn than 
+ * the random function. This is great for future adjustments.
+ * 
+ * The map function was used to translate the values generated 
+ * of the noise function (between 0 and 1) to integers 
+ * between 100 and 255 that are used to generate the purple colour
+ * 
+ * Further Development:
+ * 
+ * The style generates purple dots between 100 and 255 
+ * points of color. This is conjunction with a black background
+ * genereates a stylish looking wave.
+ * 
+ * I was able to connect the dots by applying the provided 
+ * nested for loop. This gave me access to each of the wave dots.
+ * The key to find the next dot position was dividing the axis x & y
+ * and providing a different phase angle. Then, providing the line 
+ * function with the respective coordate using trigonometric functions 
+ * such as sin and cos.
+ */
+
 var time = 100;
 
 function setup(){
@@ -127,7 +151,7 @@ function wave(x,y,size,color) {
  */
 function noiseColorGenerator(){
   var nX = noise(time)
-  nX = map(nX,0,1,100,250)
+  nX = map(nX,0,1,100,255)
   time +=10
   return color(nX,0,nX)
 }
