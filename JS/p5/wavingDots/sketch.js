@@ -6,19 +6,19 @@
  * 
  * The map function was used to translate the values generated 
  * of the noise function (between 0 and 1) to integers 
- * between 100 and 255 that are used to generate the purple colour
+ * between 100 and 255 that are used to generate the purple color
  * 
  * Further Development:
  * 
  * The style generates purple dots between 100 and 255 
- * points of color. This is conjunction with a black background
- * genereates a stylish looking wave.
+ * points of color. This in conjunction with a black background
+ * generates a stylish-looking wave.
  * 
  * I was able to connect the dots by applying the provided 
  * nested for loop. This gave me access to each of the wave dots.
- * The key to find the next dot position was dividing the axis x & y
- * and providing a different phase angle. Then, providing the line 
- * function with the respective coordate using trigonometric functions 
+ * The key to finding the next dot position was dividing the axis x & y
+ * and providing a different phase angle. Then, I provide the line 
+ * function with the respective coordinate using trigonometric functions 
  * such as sin and cos.
  */
 
