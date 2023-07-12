@@ -6,6 +6,8 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "express": "^4.17.1"
+    "chi": "^0.0.10",
+    "express": "^4.17.1",
+    "mocha": "^10.2.0"
   }
 }
