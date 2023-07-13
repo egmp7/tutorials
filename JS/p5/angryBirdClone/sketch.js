@@ -14,6 +14,10 @@ var engine;
 var propeller;
 var boxes = [];
 var birds = [];
+//My code starts here
+var birdsCannon =[];
+var cannon;
+// My code ends here
 var colors = [];
 var ground;
 var slingshotBird, slingshotConstraint;
@@ -37,7 +41,10 @@ function setup() {
 
   setupMouseInteraction();
 
-  game =  new Game();
+  //My code starts here
+  game =  new Game;
+  cannon = new Cannon;
+  // My code ends here
 }
 ////////////////////////////////////////////////////////////
 function draw() {
@@ -54,8 +61,12 @@ function draw() {
   drawBirds();
 
   drawSlingshot();
+  
+  // My code starts here
+  cannon.drawBirdsCannon();
 
   game.run();
+  // My code ends here
 }
 ////////////////////////////////////////////////////////////
 //use arrow keys to control propeller
@@ -82,6 +93,12 @@ function keyTyped(){
     removeFromWorld(slingshotConstraint);
     setupSlingshot();
   }
+
+  // My code here
+  if (key == 'f'){
+    cannon.setupBirdsCannon()
+  }
+  // My code ends here
 }
 
 //**********************************************************************

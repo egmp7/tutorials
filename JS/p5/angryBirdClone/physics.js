@@ -120,3 +120,5 @@ function setupMouseInteraction(){
   mouseConstraint.mouse.pixelRatio = pixelDensity();
   World.add(engine.world, mouseConstraint);
 }
+
+
