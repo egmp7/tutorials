@@ -15,21 +15,25 @@ function drawGround(){
 }
 ////////////////////////////////////////////////////////////////
 function setupPropeller(){
-  // your code here
+  // My code starts here ------------>
   propeller = Bodies.rectangle(150, 480, 200, 15, {
     isStatic: true, angle: angle
   });
 
   World.add(engine.world, propeller);
+  // My code ends  here ------------>
 }
 ////////////////////////////////////////////////////////////////
 //updates and draws the propeller
 function drawPropeller(){
+
+  // My code starts here ------------>
   Body.setAngle(propeller,angle)
   Body.setAngularVelocity(propeller,angleSpeed)
   angle += angleSpeed;
   fill(255);
   drawVertices(propeller.vertices)
+  // My code ends  here ------------>
 }
 ////////////////////////////////////////////////////////////////
 function setupBird(){
@@ -41,6 +45,8 @@ function setupBird(){
 }
 ////////////////////////////////////////////////////////////////
 function drawBirds(){
+
+  // My code starts here ------------>
   for(var i = 0; i < birds.length ; i++){
     fill(255,255,0)
     drawVertices(birds[i].vertices)
@@ -50,11 +56,13 @@ function drawBirds(){
       i--;
     }
   }
+  // My code ends here ------------>
 }
 ////////////////////////////////////////////////////////////////
 //creates a tower of boxes
 function setupTower(){
-  //you code here
+
+  // My code starts here ------------>
   for(var i =0 ; i<3; i++){
     for(var j =0 ; j<6; j++){
       var b = Bodies.rectangle(
@@ -67,10 +75,12 @@ function setupTower(){
       World.add(engine.world,[b])
     }
   }
+  // My code ends here ------------>
 }
 ////////////////////////////////////////////////////////////////
 //draws tower of boxes
 function drawTower(){
+  // My code starts here ------------>
   for(var i =0 ; i<boxes.length; i++){
     fill(boxes[i].color)
     drawVertices(boxes[i].box.vertices)
@@ -80,10 +90,11 @@ function drawTower(){
       i--;
     }
   }
+  // My code ends here ------------>
 }
 ////////////////////////////////////////////////////////////////
 function setupSlingshot(){
-//your code here
+  // My code starts here ------------>
   slingshotBird = Bodies.circle(100,100,20,{friction: 0,
     restitution: 0.95 })
   Matter.Body.setMass(slingshotBird, slingshotBird.mass*10);
@@ -98,6 +109,7 @@ function setupSlingshot(){
   )
 
   World.add(engine.world, [slingshotBird,slingshotConstraint]);
+  // My code ends here ------------>
 }
 ////////////////////////////////////////////////////////////////
 //draws slingshot bird and its constraint

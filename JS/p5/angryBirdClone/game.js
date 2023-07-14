@@ -1,6 +1,7 @@
-/** Create a game and calculates the time left, 
- * if the game runs out of time, the game finish */
+// My code starts here ------------>
 
+/** Calculates the time left, 
+ * if the game runs out of time, the game finish */
 class Game{
     
     constructor(){
@@ -52,3 +53,4 @@ class Game{
         text("GAME OVER",width/2,height/2)
     }
 };
+// My code ends here ------------>
