@@ -1,3 +1,5 @@
+// My code starts here ---------------->
+
 /** Stores and draws the score,
  * Also draws current time in seconds
  */
@@ -14,3 +16,5 @@ class Score{
         this.points += 1;
     }
 }
+
+// My code ends here ---------------->

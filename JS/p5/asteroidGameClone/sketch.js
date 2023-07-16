@@ -12,7 +12,9 @@ function setup() {
   createCanvas(1000,600);
   spaceship = new Spaceship();
   asteroids = new AsteroidSystem();
+  // My code starts here ---------------->
   score = new Score();
+  // My code ends here ------------------>
 
   //location and size of earth and its atmosphere
   atmosphereLoc = new createVector(width/2, height*3.15);
@@ -28,7 +30,9 @@ function draw() {
 
   spaceship.run();
   asteroids.run();
+  // My code starts here ---------------->
   score.draw();
+  // My code ends here ------------------>
 
   drawEarth();
   checkCollisions(spaceship, asteroids); // function that checks collision between various elements
@@ -50,7 +54,7 @@ function drawEarth(){
 //checks collisions between all types of bodies
 function checkCollisions(spaceship, asteroids){
 
-    //YOUR CODE HERE (2-3 lines approx)
+    // My code starts here ---------------->
     for( var i=0 ; i<asteroids.locations.length ; i++){
       //spaceship-2-asteroid collisions
       if(isInside(asteroids.locations[i],asteroids.diams[i],spaceship.location,spaceship.size/2)) gameOver()
@@ -68,15 +72,17 @@ function checkCollisions(spaceship, asteroids){
     if(isInside(spaceship.location,spaceship.size,earthLoc,earthSize.x)) gameOver()
     //spaceship-2-atmosphere
     if(isInside(spaceship.location,spaceship.size,atmosphereLoc,atmosphereSize.x)) spaceship.setNearEarth()
+    // My code ends here ---------------->
 }
 
 //////////////////////////////////////////////////
 //helper function checking if there's collision between object A and object B
 function isInside(locA, sizeA, locB, sizeB){
-    // YOUR CODE HERE (3-5 lines approx)
+    // My code starts here ---------------->
     if (locB == undefined || locA == undefined || sizeB == undefined || sizeA == undefined) return false 
     if(dist(locA.x,locA.y,locB.x,locB.y) < (sizeA/2 + sizeB/2) ) return true;
     return false;
+    // My code ends here ---------------->
 }
 
 //////////////////////////////////////////////////

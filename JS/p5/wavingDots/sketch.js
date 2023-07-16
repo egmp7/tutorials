@@ -22,18 +22,24 @@
  * such as sin and cos.
  */
 
+// My code starts here ---------------->
 var time = 100;
+// My code ends here ---------------->
 
 function setup(){
     createCanvas(500, 500);
     randomSeed(0)
+    // My code starts here ---------------->
     angleMode(DEGREES)
+    // My code ends here ---------------->
 }
 
 function draw(){
 
     background(0);
+    // My code starts here ---------------->
     translate(0,size);
+    // My code ends here ---------------->
     
     var noOfDots = 20;
     var size = width/noOfDots;
@@ -42,6 +48,7 @@ function draw(){
     for (var x = 0; x < noOfDots; x++){
       for (var y = 0; y < noOfDots; y++){
 
+        // My code starts here ---------------->
         // x & y coordenates
         var locX = x * width / noOfDots;
         var locY = y * height / noOfDots;
@@ -63,9 +70,12 @@ function draw(){
         // Create a wave
         wave(size/2,0,size/2,c);
         pop()
+        // My code ends here ---------------->
       }
     }
 }
+
+// My code starts here ---------------->
 
 /** Calculates the phase angle depending 
  * on the position of the Mouse, frameCount, 
@@ -155,3 +165,4 @@ function noiseColorGenerator(){
   time +=10
   return color(nX,0,nX)
 }
+// My code ends here ---------------->

@@ -8,6 +8,7 @@ function draw() {
     background(0);
     speed = frameCount;
 
+    // My code starts here ---------------->
     /**SUN */
     push();
     translate(width/2, height/2);
@@ -54,6 +55,7 @@ function draw() {
         rotate(radians(-speed*1.8))
         celestialObj(color(255,0,100), 100); 
     pop();
+    // My code ends here ---------------->
 }
 
 function celestialObj(c, size){

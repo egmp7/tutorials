@@ -26,11 +26,12 @@ class Spaceship {
   }
 
   move(){
-      // YOUR CODE HERE (4 lines)
+      // My code starts here ---------------->
       this.velocity.add(this.acceleration)
       this.velocity.limit(this.maxVelocity)
       this.location.add(this.velocity);
       this.acceleration.mult(0);
+      // My code ends here ---------------->
   }
 
   applyForce(f){
@@ -42,16 +43,19 @@ class Spaceship {
         this.applyForce(createVector(-0.1, 0));
       }
       if (keyIsDown(RIGHT_ARROW)){
-      // YOUR CODE HERE (1 line)
+        // My code starts here ---------------->
         this.applyForce(createVector(0.1, 0));
+        // My code ends here ---------------->
       }
       if (keyIsDown(UP_ARROW)){
-      // YOUR CODE HERE (1 line)
+        // My code starts here ---------------->
         this.applyForce(createVector(0, -0.1));
+        // My code ends here ---------------->
       }
       if (keyIsDown(DOWN_ARROW)){
-      // YOUR CODE HERE (1 line)
+        // My code starts here ---------------->
         this.applyForce(createVector(0, 0.1));
+        // My code ends here ---------------->
       }
   }
 
@@ -67,10 +71,11 @@ class Spaceship {
   }
 
   setNearEarth(){
-    //YOUR CODE HERE (6 lines approx)
+    // My code starts here ---------------->
     this.applyForce(createVector(0,0.05));
     var friction = this.velocity.copy()
     friction.mult(- 1/30)
     this.applyForce(friction);
+    // My code ends here ---------------->
   }
 }
