@@ -36,7 +36,7 @@ function earlyBirdFilter(img){
   resultImg = sepiaFilter(imgIn);
   resultImg = darkCorners(resultImg);
   resultImg = radialBlurFilter(resultImg);
-  // resultImg = borderFilter(resultImg)
+  resultImg = borderFilter(resultImg)
   return resultImg;
 }
 /**************************
@@ -44,8 +44,8 @@ function earlyBirdFilter(img){
  **************************/
 
 /**
- * @param {Image} img 
- * @returns {Image} Sepia filtered image
+ * @param {p5.Image} img 
+ * @returns {p5.Image} Sepia filtered image
  */
 function sepiaFilter(img){
   var imgOut = createImage(img.width, img.height);
@@ -81,8 +81,8 @@ function sepiaFilter(img){
 }
 
 /**
- * @param {Image} img 
- * @returns {Image} Dark Corners image
+ * @param {p5.Image} img 
+ * @returns {p5.Image} Dark Corners image
  */
 function darkCorners(img){
   var imgOut = createImage(img.width, img.height);
@@ -134,8 +134,8 @@ function darkCorners(img){
 /**
  * Creates a radial blur of size 100 pixels,
  * gets updated when user clicks in the canvas
- * @param {Image} img 
- * @returns {Image} Blured Image
+ * @param {p5.Image} img 
+ * @returns {p5.Image} Blured Image
  */
 function radialBlurFilter(img){
   var imgOut = createImage(img.width, img.height);
@@ -178,6 +178,27 @@ function radialBlurFilter(img){
 
   imgOut.updatePixels();
   return imgOut;
+}
+
+/**
+ * Creates a rounded border for the image
+ * @param {p5.Image} img 
+ * @returns {p5.Graphics} Blured Image
+ */
+function borderFilter(img){
+
+  var buffer = createGraphics(img.width,img.height)
+  buffer.image(img,0,0);
+  
+  // rounded border
+  var weight = 10;
+  buffer.strokeWeight(weight)
+  buffer.stroke(255);
+  buffer.fill(0,0,0,0);
+  buffer.rect(weight/2,weight/2,img.width -weight/2,img.height-weight/2,50);
+  buffer.rect(weight/2,weight/2,img.width -weight/2,img.height-weight/2);
+
+  return buffer;
 }
 
 function mousePressed(){
