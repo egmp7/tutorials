@@ -1,5 +1,18 @@
 // Image of Husky Creative commons from Wikipedia:
 // https://en.wikipedia.org/wiki/Dog#/media/File:Siberian_Husky_pho.jpg
+/**
+ * Instagram Filter app, radio buttons where 
+ * added to apply the effects of each filter.
+ * Also two selectors were added to the application.
+ * The first selector picks a set of constants that 
+ * affect the color of the filter. Please, ensure that Sepia filter
+ * is selected to notice the different colors
+ * The second selector chooses a type of matrix, and
+ * creates different blurs. Please, ensure that
+ * Radiu Blur Filter is selected to notice the different
+ * blurs.
+ */
+
 var imgIn;
 
 /**************************
