@@ -1,7 +1,14 @@
 // Image of Husky Creative commons from Wikipedia:
 // https://en.wikipedia.org/wiki/Dog#/media/File:Siberian_Husky_pho.jpg
 var imgIn;
-var matrix = [
+
+/**************************
+ * My code starts here
+ **************************/
+var checkboxes={}
+
+var matrixSelector;
+var matrix = [[
     [1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64],
     [1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64],
     [1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64],
@@ -10,11 +17,31 @@ var matrix = [
     [1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64],
     [1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64],
     [1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64]
-];
-/**************************
- * My code starts here
- **************************/
-var checkboxes={}
+],[
+	[1/9, 1/9, 1/9],
+	[1/9, 1/9, 1/9],
+	[1/9, 1/9, 1/9]
+],[
+	[1/16, 1/16, 1/16, 1/16],
+	[1/16, 1/16, 1/16, 1/16],
+	[1/16, 1/16, 1/16, 1/16],
+	[1/16, 1/16, 1/16, 1/16]
+]];
+
+var colorSelector;
+var colors=[[	.393, .769, .189, 
+				.349, .686, .168,
+				.272, .534, .131],
+			[	.233, .566, .400,
+				.600, .222, .100,
+				.323, .432, .324],
+			[	.100, .200, .300,
+				.400, .500, .600,
+				.700, .800, .900],
+			[	.350, .500, .350,
+				.100, .550, .400,
+				.050, .400, .050]]
+
 /**************************
  * My code ends here
  **************************/
@@ -29,6 +56,8 @@ function setup() {
     /**************************
      * My code starts here
      **************************/
+
+	// checkboxes
     checkboxes.sepiaFilter = createCheckbox('Sepia Filter', false)
 	checkboxes.sepiaFilter.changed( sepiaFilterEvent )
 	checkboxes.darkCorners = createCheckbox('Dark Corners', false)
@@ -37,6 +66,24 @@ function setup() {
 	checkboxes.radialBlurFilter.changed ( radialBlurFilterEvent )
 	checkboxes.borderFilter = createCheckbox('Border Filter', false)
 	checkboxes.borderFilter.changed( borderFilterEvent )
+
+	// color selector
+	createP('Color Selector')
+	colorSelector = createSelect();
+	colorSelector.option('Old filter', 0);
+	colorSelector.option('Weird filter', 1);
+	colorSelector.option('Crescendo filter', 2);
+	colorSelector.option('Stable filter', 3);
+	colorSelector.changed( colorSelectorEvent );
+
+	// matrix selector
+	createP('Matrix Selector')
+	matrixSelector = createSelect();
+	matrixSelector.option('8 x 8',0);
+	matrixSelector.option('3 x 3',1);
+	matrixSelector.option('4 x 4',2);
+	matrixSelector.changed( matrixSelectorEvent );
+
     /**************************
      * My code ends here
      **************************/
@@ -114,9 +161,10 @@ function sepiaFilter(img){
         var oldB = img.pixels[index + 1];
 
         // create new RGB colors
-        var newR = (oldR * .393) + (oldG *.769) + (oldB * .189);
-        var newG = (oldR * .349) + (oldG *.686) + (oldB * .168);
-        var newB = (oldR * .272) + (oldG *.534) + (oldB * .131);
+		var v = colorSelector.value()
+        var newR = (oldR * colors[v][0]) + (oldG * colors[v][1]) + (oldB * colors[v][2]);
+        var newG = (oldR * colors[v][3]) + (oldG * colors[v][4]) + (oldB * colors[v][5]);
+        var newB = (oldR * colors[v][6]) + (oldG * colors[v][7]) + (oldB * colors[v][8]);
   
         // set RGB colors
         imgOut.pixels[index + 0] = newR;
@@ -188,7 +236,7 @@ function darkCorners(img){
  */
 function radialBlurFilter(img){
 	var imgOut = createImage(img.width, img.height);
-	var matrixSize = matrix.length;
+	var matrixSize = matrix[matrixSelector.value()].length;
 	img.loadPixels();
 	imgOut.loadPixels();
 
@@ -215,7 +263,7 @@ function radialBlurFilter(img){
 		else dynBlur = map(constrain(distanceMouseToPixel,100,300),100,300,0,1);
 		
 		// convolution
-		var c = convolution(x,y,matrix,matrixSize,img)
+		var c = convolution(x,y,matrix[matrixSelector.value()],matrixSize,img)
 
 		// set RGB colors
 		imgOut.pixels[index + 0] = c[0]*dynBlur + r*(1-dynBlur);
@@ -258,6 +306,8 @@ function darkCornersEvent(){ loop(); }
 function radialBlurFilterEvent(){ loop(); }
 function borderFilterEvent(){ loop(); }
 function mousePressed(){ loop(); }
+function colorSelectorEvent(){ loop()}
+function matrixSelectorEvent(){ loop()}
 
 /**************************
  * My code ends here
