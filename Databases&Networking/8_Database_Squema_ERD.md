@@ -6,20 +6,20 @@
 **Primary key:** id
 **Foreign key:** Publisher_id
 
-| id | name     | price  | publisher_id |
-| -- | -------- | ------ | ------------ |
-| 1  | random 1 | 20.25  | 1            |
-| 2  | random 2 | 34.67  | 2            |
-| 2  | random 3 | 70.67  | 3            |
+| id | name          | price  | publisher_id |
+| -- | ------------- | ------ | ------------ |
+| 1  | Database book | 20.25  | 1            |
+| 2  | Node.js book  | 34.67  | 2            |
+| 2  | Express book  | 70.67  | 3            |
 
 ### Publisher Table
 **Primary key:** id
 
 | id | name     | address  | website |
 | -- | -------- | -------- | ------- |
-| 1  | random 1 | random1  | www1    |
-| 2  | random 2 | random2  | www2    |
-| 2  | random 3 | random3  | www3    |
+| 1  | McGill   | random1  | www1    |
+| 2  | Oxford   | random2  | www2    |
+| 2  | Camb     | random3  | www3    |
 
 ## Designing a relational database
 
@@ -123,3 +123,69 @@ The answer to this problem is to add a new table to the ER diagram. This new tab
 | 2  | 2        | 1       | 1        |
 | 3  | 2        | 2       | 2        |
 
+
+# Foreign keys and SQL join
+
+When building relations between tables in a relational database, we also need another key, which is called a foreign key. A foreign key in a table is the primary key from another table, which is used to model a relation between the two tables
+
+It is better to have a unique ID for each author as the primary key in the author table, and then use this as a foreign key in the article table
+
+#### Article Table
+
+| id | Article title | Publication date | Author_id |
+| -- | ------------- | ---------------- | --------- |
+| 0  | title 1       | date 1           | 1         |
+| 1  | title 2       | date 2           | 2         |
+| 2  | title 3       | date 3           | 1         |
+
+#### Author Table
+
+| id | Author name | Phone   | email   |
+| -- | ----------- | ------- | ------- |
+| 1  | name 1      | phone 1 | email 1 |
+| 2  | name 2      | phone 2 | email 2 |
+
+## Foreign keys constraint
+
+The foreign key constraint ensures that referential integrity of data joining any two tables by limiting the content of the foreign key to the values of referenced primary key. This is necessary in addition to primary key constraints, which we discussed earlier to ensure the accuracy and integrity of data stored in databases
+
+- Ensures referential integrity
+- Limits the content of the foreign key to the values of the referenced primary key
+
+## MySQL implementation
+
+*Referencing Table Book and Publisher from Top*
+
+
+    CREATE TABLE book (
+        id INT AUTO_INCREMENT,
+        name VARCHAR(50),
+        price DECIMAL(5,2) unsigned,
+        publisher_id INT,
+        PRIMARY KEY (id),
+        FOREIGN KEY (publisher_id) REFERENCES publisher (id)
+    );
+
+
+### Query implementation
+
+**General SQL JOIN**
+
+    SELECT field_name1, field_name2,..
+    FROM table1 JOIN table2 ON
+    join_condition WHERE select_condition
+
+**Retrieving from one table** Find name and price of all the books priced more than 30 pounds
+
+    SELECT Book.name, Book.price FROM book WHERE Book.price > 30
+
+**Retrieving from two tables** Retrieve the name, price and publisher names of all the books priced more than 30 pounds
+
+    SELECT Book.name, Book.price, Publisher.publisher_name FROM Book 
+    JOIN Publisher ON Book.publisher_id = Publisher.id WHERE Book.price > 30
+
+**Insert data into a table with foreign key**
+
+    INSERT INTO Book (publisher_id, name, price) 
+    VALUES ((SELECT id FROM Publisher WHERE Publisher.name = 'McGrawHill'), 
+    'Database Book', 40.25);
