@@ -3,7 +3,7 @@
 ## Database Design
 
 ### Table Book
-**Primary key:** id
+**Primary key:** id <br>
 **Foreign key:** Publisher_id
 
 | id | name          | price  | publisher_id |
@@ -30,10 +30,12 @@ Then divide the information into entities such as customers, products, students,
 Then decide about your primary case. Each table needs a primary key as a unique identifier for each row. Next, model relations between tables by adding foreign keys if required. Then think about relationship cardinalities. This means that you need to decide the type of the association or relations between tables
 
 1. Identify entities or tables
+
     1. What is the purpose of the database. **Start from requirement list**
     2. Identify properties (columns or fields) of each table.
     3. Decide on data types for each field.
-
+<br>
+<br>
 2. Decide on primary key
 3. Decide on relationships between tables and foreign keys
 4. Identify relationship cardinalities
