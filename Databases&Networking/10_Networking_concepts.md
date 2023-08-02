@@ -84,13 +84,13 @@ A collection of protocols is called an Internet protocol stack.
 
 Each layer in the source adds some data as the headers to the original message. The transport layer adds a header, let's call it header t. Then the network layer adds the IP addressing headers, which we'll call header n. Then the link layer adds some data which we'll call header l. When the data arrives at the destination, each layer starting from the link layer, removes the header related to that layer before passing the message to the layer above, until the original data arrives at the application layer of the destination computer
 
-|                          |                   |
+| Data                     | TCP/IP model      |
 | ------------------------ | ----------------- |
 | Message or data (M)      | Application layer |
 | Segment (Ht) (M)         | Transport layer   |
 | Datagram (Hn) (Ht) (M)   | Network layer     |
 | Frame (Hl) (Hn) (Ht) (M) | Link layer        |
-|                          | Physical layer        |
+|                          | Physical layer    |
 
 # Application Layer
 
@@ -149,10 +149,96 @@ This diagram shows the link, network and transport layers, and above that applic
 
 In the application layer you can see HTTP alongside the various different parts of the SSL protocol. The SSL record layer protocol. SSL handshake protocol, SSL change cipher spec protocol, and SSL alert protocol, all together this makes up the HTTPS protocol. A similar principle applies with TLS.
 
-![](/Databases&Networking/assets/32.png)
+```
+    // DIAGRAM
+
+    | ------------------------------------------ |
+    | SSL       | SSL change  | SSL alert | HTTP |
+    | handshake | cipher spec | protocol  |      |
+    | protocol  | protocol    |           |      |
+    | ----------------------------------- |      |
+    | SSL Record Layer Protocol           |      |
+    | ------------------------------------------ |
+    |        Transport Layer                     |
+    | ------------------------------------------ |
+    |        Network Layer                       |
+    | ------------------------------------------ |
+    |        Link Layer                          |
+    | ------------------------------------------ |
+
+```     
 
 ## HTTP vs HTTPS
 
 HTTPS is the HTTP protocol embedded within the TLS protocol or the SSL protocol. HTTP is responsible for handling requests and responses and all the web serving mechanics. And TLS or SSL are responsible for encrypting the data sent over the network and for authenticating the identity of the server host using a certificate.
 
 The case of FTP is similar to HTTP, in the past there was only FTP, but now to protect file transfer from attacks FTPS is used. FTPS also known as ftps FTPS, FTP SSL, and FTP secure is an extension to the commonly used FTP adding support for the TLS and formerly the SSL.
+
+# Transport Layer in the TCP/IP model
+
+This model is actually named in part after the most famous protocol of the transport layer, TCP, or transmission control protocol. Protocols such as FTP, HTTP, and SMTP in the application layer rely on TCP in transport layer.
+
+## TCP (Transmission control protocol)
+
+- Is connection-oriented
+- It takes place between a client and server **initiating** or **terminating** a connection
+
+TCP being connection-oriented means that: 
+- First a **reliable connection** must be established and acknowledged, 
+- and then **data can be transmitted**. 
+- TCP is **reliable**. 
+- It also does lots of **error checking**. For example, TCP has a checksum in its header, which is used to verify that end-to-end data has not been corrupted.
+- Involves the **three-way handshake** process. The three-way handshake process occurs between a client and server when initiating or terminating a TCP connection.
+
+## Three way handshake steps
+
+1. Client host sends **TCP SYN** segment to server (No data sent yet). Packages are called segments in the transport layer.
+
+2. Server host receives **SYN**, replies with **SYNACK** segment
+
+3. Client receives **SYNACK** replies with **ACK** segment, **which may contain data**
+
+**Note:** All this back and forth communication and deliverability is good for reliability, but it is not good in terms of speed.
+
+## TCP versus UDP (User datagram Protocol)
+
+- Datagram = a packet of information
+
+- UDP protocol works similarly to TCP
+
+- No error checking
+
+- No handshaking
+
+- Faster
+
+- Examples to use UDP: live broadcasting, online games, or telephone and video conferencing over the Internet.
+
+- Examples to use TCP when error connection is necessary: File transfer, email
+
+## Ports and sockets
+
+The port number is a bit like a telephone extension number in a big organization. The IP address will identify your machine on the Internet so that data can be sent to it. This is a bit like someone calling the switchboard. They will get through to the right organization this way, but not to the person who needs the message. Once connection is established, you need to know the extension number to know how to talk across that connection. When your computer receives data from outside, that message needs to be directed to the correct application process. Each application runs on a specific port number on your machine, just as each person in an organization has their own extension number. The IP address plus the port number is called a socket, which creates a complete addressing mechanism.
+
+**IP address + port number = socket** (complete address mechanism)
+
+This leads us to two more concepts that happen in the transport layer, **multiplexing and demultiplexing**
+
+## Multiplexing
+
+Multiplexing is at the sender side. There may be many processes that want to send their packets, and multiplexing is the process of passing these segments to the network layer. TCP at the transport layer accepts and collects the data it receives from all the different sockets and adds transport headers which add data related to that layer before sending them on in a single line. So multiplexing is a many-to-one process
+
+- Sender side
+- TCP collects data from multiple ports
+- Multiplexing passes these segments to the network layer in one line
+- Many-to-one process
+
+## Demultiplexing
+
+Demultiplexing, on the other hand, is the reverse process happening at the receiver side. It is one-to-many process. Packets arrive one after the other in one line, and then they are redirected to different ports. Demultiplexing checks the port numbers and delivers the datagrams to the correct applications. So demultiplexing is the process whereby the transport layer delivers data to the correct socket
+
+- One-to-many process
+- Receiver side
+- Datagrams come from network layer
+- TCP checks port numbers and delivers the datagrams
+- Demultiplexing delivers data to the correct socket
