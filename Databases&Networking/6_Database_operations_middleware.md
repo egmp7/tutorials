@@ -8,15 +8,15 @@ INSERT INTO dishes (name, price, is_vegetarian, is_vegan)VALUES('pizza margherit
 SELECT * FROM dishes LIMIT 1;
 ```
 
-# UPDATE Items from database
+## UPDATE Items from database
 
 ```
 UPDATE TableName SET filedName1 = new-value1, fieldName2 = new-value2;
 
-UPDATE books SET price = 25.50 WHERE id = 1; t
+UPDATE books SET price = 25.50 WHERE id = 1;
 ```
 
-# DELETE Items from database
+## DELETE Items from database
 
 Deletes everything from table
 ```
@@ -32,21 +32,25 @@ DELETE FROM dishes WHERE name='Mushy peas';
 
 A primary key is a field or combination of fields in a table that uniquely identifies each row or a record in a table. In most of the cases, primary key is a numerical ID. A primary key is often an integer ID field set to auto increment.
 
-![](/Databases&Networking/assets/28.png)
+- Provide a **unique** identifier fpr each record in a table
+- **Guarantee** that every row is unique
 
-# Integrity Constrains in database design 
+## Integrity Constrains in database design 
 
-![](/Databases&Networking/assets/30.png)
+- **Rules** eg limiting acceptable values and actions
+- Purpose: to provide **accuracy** and **integrity** of data in databases 
 
-# Primary Key integrity constrain 
+## Primary Key integrity constrain 
 
-![](/Databases&Networking/assets/29.png)
+- Every table **must** have a field (or combination of fields) designated as its primary key
+
+- Essentially as if **UNIQUE** and **NOT NULL** constrains are applied
 
 # Access databases from your Node web application
 
 ## Dependencies 
 
-Use version 2, works better 
+Use mysql2, version 2 works better 
 
 ```
 npm install mysql2 --save:
@@ -73,39 +77,39 @@ db.connect((err) => {
 
 global.db = db;
 ```
-**Routes**
+**Routes main.js**
 ```
 app.get("/list", function(req, res) {
+
     // query database to get all the books
     let sqlquery = "SELECT * FROM books";
+
     // execute sql query
     db.query(sqlquery, (err, result) => {
-        if (err) {
-        res.redirect("/");
-        }
-        res.send(result)
+        if (err) res.redirect("/");
+        else res.send(result)
     });
 });
 ```
 
-# Passing variables to templates 
-
-## Template iteration
+## Passing variables to templates (GET request)
 
 **Routes**
 ```
 app.get("/list", function(req, res) {
+
     // query database to get all the books
     let sqlquery = "SELECT * FROM books";
+    
     // execute sql query
     db.query(sqlquery, (err, result) => {
-        if (err) {
-            res.redirect("/");
-        }
-        res.render("list.html", {availableBooks: result});
+        if (err) res.redirect("/");
+        else res.render("list.html", {availableBooks: result});
     });
 });
 ```
+
+## Template iteration (for each loop)
 
 **html**
 ```
@@ -113,12 +117,13 @@ app.get("/list", function(req, res) {
     <li><%= book.name %>, £<%= book.price %></li>
 <% }) %>
 ```
-# Passing variables to back-end
+## Passing variables to back-end (POST request)
 
 **Routes**
 
 ```
 app.post("/addbook", function (req,res) {
+
     // saving data in database
     let sqlquery = `INSERT INTO books (name, price) VALUES  (?,?)`;
 
@@ -126,18 +131,20 @@ app.post("/addbook", function (req,res) {
     let newrecord = [req.body.name, req.body.price];
 
     db.query(sqlquery, newrecord, (err, result) => {
-        if (err) {
-            return console.error(err.message);
-        }else
-        res.send(` This book is added to database, name: ${req.body.name} price: ${req.body.price}`);
+        if (err) return console.error(err.message);
+        else {
+            res.send(` This book is added to database, name: 
+                        ${req.body.name} price: ${req.body.price}`)
+        };
     });
 });
 ```
-# Passing variables to templates and back-end
+## Passing variables to templates and back-end (req.query)
 
 **Routes**
-
+```
  app.get("/search-result-db", function (req, res) {
+    
     //searching in the database
     let word = [req.query.keyword];
     let sqlquery = "SELECT * FROM `books` WHERE name like ?";
@@ -146,8 +153,11 @@ app.post("/addbook", function (req,res) {
     db.query(sqlquery,word, (err, result) => {
 
         if (err) {
-            return console.error("No book found with the keyword you have entered" + req.query.keyword + "error: "+ err.message);
-            //res.redirect("./search"); this can also be used in case of an error instead of the above line
+            return console.error(
+                "No book found with the keyword you have entered" + 
+                req.query.keyword + "error: "+ err.message);
+            // this can also be used in case of an error instead of the above line
+            // res.redirect("./search"); 
         }
 
         else{
@@ -155,7 +165,7 @@ app.post("/addbook", function (req,res) {
         }
     });
 });
-
+```
 # Sanitization
 
 Input sanitization cleans the input data from malicious code such as SQL injection
