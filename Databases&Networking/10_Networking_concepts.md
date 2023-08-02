@@ -242,3 +242,56 @@ Demultiplexing, on the other hand, is the reverse process happening at the recei
 - Datagrams come from network layer
 - TCP checks port numbers and delivers the datagrams
 - Demultiplexing delivers data to the correct socket
+
+# Network Layer in TCP/IP model
+
+IP addressing and routing happen in this layer, which is sometimes also called the Internet layer. Internet protocol or IP is the name of the protocol in the network layer. As you may have noticed, IP is the second part of the name of the model, TCP/IP. Internet protocol in the network layer handles sending data from a source to the destination, which happens via a series of devices called routers. Each computer on the Internet has a unique number or address called the IP address
+
+- Internet Protocol (IP)
+- IP addressing
+- Routing
+
+## IP addressing
+
+- IPv4: 32 bits or
+- Four 8-bit sections, each between 0-255
+- 2 to the power of 32 = more than four billion possibilities
+- Example IP address: 92.40.248.23
+
+## Routing
+
+- Definition: A forwarding mechanism that carries packets from source to destination on the internet
+- Routers receive packets and forward them to the next hop. This will continue until their packets arrive at their destination
+- Routers do not understand the whole network
+- Routing algorithms run at routers to determine these parts. Routers also pass updated routes back and forth. If they don't know a network address, they ask their neighboring routers
+- Routers have a forwarding table or routing table and based on this, they choose the best outbound route for each network address
+
+## Time to live (TTL)
+
+ Infinite loops in packet routing could result in a crash network, which would cause huge problems to lots of people. So the header called Time to Live, or TTL, is a very simple yet efficient mechanism to prevent infinite loops when routing packets
+
+- TTL is usually **initialized** by a value
+- Every time it is forwarded by a router, its value is **subtracted by one**
+- Router check TTL value of each packet
+- If the value reaches **zero**, they **destroy it** and send a message back
+
+# The link layer
+
+- The link layer only worries about getting data across **one hop**.
+- Incorporates a **group of communication protocols**
+- And each protocol is designed based on a **specific medium** in their physical layer underneath
+- Link layer protocols cover different mediums such as **wire, Wi-Fi, and fiber optics and Ethernet**.
+- It's irrelevant to the link layer, whether they Internet exist or not, since it is only responsible for carrying the data across one hop based on the medium available
+- Is where the **link** between the logical and physical components of the communication network is made.
+
+## Frames
+
+- Packets of data at the data link layer
+- Transmit data in a **point-to-point** manner
+- Addressing mechanism is **hardware-specific**
+
+## MAC address Media access control address
+
+- Used in medium access control protocol (**sub-layer** of data link)
+- Assigned by manufacturers: **burned-in**
+- Used to **identify** link layer devices
