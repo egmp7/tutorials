@@ -5,29 +5,37 @@ Forms are used in dynamic web applications to collect users input data. A web fo
 Forms are very important for data manipulation and allow you to collect, update and verify many
 information
 
-# HTTP methods
+## HTTP request methods
 
 Each request method is designed to perform a specific action on a given resource. HTTP request methods are sometimes called verbs and include get, put, post, delete, patch, head, connect, options and trace.
 
-![](/Databases&Networking/assets/15.png)
+```
+    GET         PUT         HEAD
+    POST        DELETE      CONNECT
+                PATCH       OPTIONS
+                            TRACE
+```
 
-# Get method
-
-![](/Databases&Networking/assets/16.png)
+## Get request method
 
 *GET* is used to request data from a specified resources on the server.
 
-# Post method
+- GET requests to **retrieve** data
+- GET is **not suitable** when dealing with **sensitive** data
+- Data is sent **in the URL** of a GET request
 
-![](/Databases&Networking/assets/17.png)
+## Post method
 
 *POST* is used to send data in order to create or update a resource on the server.
+
+- POST sends data, often from an HTML **form**
+- Data is stored and sent in the **body** of a POST request
 
 # Collecting Form Data
 
 ## Get Method
 
-**Form**
+### Form
 
 ```
 <form action="/search-result" method="GET">
@@ -36,7 +44,7 @@ Each request method is designed to perform a specific action on a given resource
 </form>
 ```
 
-**Routes**
+### Routes
 
 This information is collected inside req.query 
 
@@ -49,11 +57,14 @@ app.get("/search-result", function (req, res) {
 });
 ```
 
-**Browser**
+### Browser
 
 Once the form is submitted the program returns this
 
-![](/Databases&Networking/assets/18.png)
+    {   
+        "keyword": "test"
+    }
+
 
 ## Post Method
 
@@ -76,7 +87,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 easily. By definition, it extracts the entire body portion of an incoming request stream and exposes it
 on req.body
 
-**Form**
+### Form
 
 ```
  <form action="/registered" method="POST">
@@ -85,7 +96,7 @@ on req.body
 </form>
 ```
 
-**Routes**
+### Routes
 
 Information is collected inside req.body
 
@@ -96,6 +107,9 @@ app.post("/registered", function (req,res) {
 });
 ```
 
-**Browser**
+### Browser
 
-![](/Databases&Networking/assets/19.png)
+    {
+        "first": "mario",
+        "last" : "tesla"
+    }
