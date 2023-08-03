@@ -298,3 +298,39 @@ When **running** the program:
 
     Floating point exception (code dumped)
 
+## Introduction to exceptions
+
+### Definition
+
+1. Event that causes suspension of normal program execution. The first definition is talking about things that are occurring while the program's running, which are perhaps unexpected. That asynchronously at any point. Event feel
+2. Indication that an operation request was not performed successfully. Now, the second one indication that an operation request was not performed successfully. That's more of a procedural feel.
+
+Worked example:
+
+    // connect to databases, check if user exists
+    bool verify Login (string username, string password)
+
+### Caller or Callee. Where should we deal with an exception?
+
+The **caller** would be the bit of the program that **calls the verifying login function**, whereas the **callee**, would be **the verifying login function itself**.
+
+The fundamental idea is to separate detection of an error (which should be done in a called function) from the handling of an error (which should be done in the calling function) while ensuring that a detected error cannot be ignored.
+
+Proposed Example: the database is down and it fails to connect to the database, so it's unable to carry out the operation. It cannot verify whether that user exists or not. It could return false, maybe just to say it doesn't exist to be safe, but it should really do something else because it's like a third thing. It's not that the user exists or doesn't exist, it has no way of actually verifying if the user exists because the database is down.
+
+### Assertions
+
+An assertion is the tool that you would use to detect that something went wrong. Let me just jump over to my drawing program here
+
+    if ( assert == okay ) Execute-the-program
+    else throw-an-exception
+
+#### Assertion Definition
+
+1. Logical expression specifying a program state that must exist or a set of conditions that program variables must satisfy at at particular point during program execution.
+
+2. Function or macro that contains loudly if a design assumption on which the code is based is not true
+
+### Exceptions vs control flow
+
+Control flow is normally for defining the logic of what the program should do under normal circumstances. Exception handling actually has its own syntax, which is similar to control flow syntax. But it's designed to deal with exceptional circumstances, not normal running. reports of professional software engineers and stuff often encountering people using exception handling as basically as control flow. You really shouldn't do that. Exception is really when something goes wrong, it shouldn't just be, "Oh, I'm going to try this risky thing, and then if it doesn't work out then I'll catch the exception and then carry on."
