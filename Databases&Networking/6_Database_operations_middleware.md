@@ -166,7 +166,7 @@ app.post("/addbook", function (req,res) {
     });
 });
 ```
-# Sanitization
+## Sanitization
 
 Input sanitization cleans the input data from malicious code such as SQL injection
 

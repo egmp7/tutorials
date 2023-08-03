@@ -120,7 +120,7 @@ SELECT * FROM TableName;
 SELECT name, price FROM books WHERE id=2;
 ```
 
-# Data Types
+## Data Types
 
 ```
 String      CHARACTER(n) /         | Stores string values containing any character set.
@@ -150,6 +150,6 @@ Temporal    TIMESTAMP              | Stores a moment an event occurs, using a de
 Boolean     BOOLEAN                | Store truth values: TRUE, FALSE, or UNKNOWN
 ```
 
-# Schema 
+## Schema 
 
 A schema is a collection of related objects, including but not limited to base tables and views, domains, constraints, character sets, triggers, and roles.
