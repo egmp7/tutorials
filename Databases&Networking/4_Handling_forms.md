@@ -70,20 +70,24 @@ Once the form is submitted the program returns this
 
 For handing post request we need to take four steps:
 
-• Installing ‘body-parser’ module: ```npm install body-parser --save```
+1. Installing ‘body-parser’ module: 
 
-• Updating the ‘index.js’ file
+```
+npm install body-parser --save
+```
+
+2. Updating the ‘index.js’ file
 
 ```
 const bodyParser= require ("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 ```
 
-• Updating the ‘main.js’
+3. Updating the routes file, hence there is a URL that points to the post function
 
-• Creating and editing a new html file named register.html in the ‘views’ directory
+4. Creating and editing a new html file in the ‘views’ directory to execute the POST request
 
-**Body-parser** is a module that will allow you to access the data sent using the POST request method
+**Note:** *Body-parser* is a module that will allow you to access the data sent using the POST request method
 easily. By definition, it extracts the entire body portion of an incoming request stream and exposes it
 on req.body
 
@@ -98,7 +102,7 @@ on req.body
 
 ### Routes
 
-Information is collected inside req.body
+Information is collected inside **req.body**
 
 ```
 app.post("/registered", function (req,res) {
