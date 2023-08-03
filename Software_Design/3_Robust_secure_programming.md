@@ -334,3 +334,124 @@ An assertion is the tool that you would use to detect that something went wrong.
 ### Exceptions vs control flow
 
 Control flow is normally for defining the logic of what the program should do under normal circumstances. Exception handling actually has its own syntax, which is similar to control flow syntax. But it's designed to deal with exceptional circumstances, not normal running. reports of professional software engineers and stuff often encountering people using exception handling as basically as control flow. You really shouldn't do that. Exception is really when something goes wrong, it shouldn't just be, "Oh, I'm going to try this risky thing, and then if it doesn't work out then I'll catch the exception and then carry on."
+
+## The try and catch pattern
+
+```
+                      |----------------|
+                      |   Verify User  |
+                      |                |                |-----------|
+                      |  | -------- |  |  ============> |   Normal  |
+                      |  | Process1 |  |                |-----------|
+|-----------|   Try   |  | -------- |  |
+|  Program  | ======> |                |     Catch      |-----------|
+|-----------|         |  | -------- |  |  ============> |   Other   |
+                      |  | Process2 |  |    Exception   |-----------|
+                      |  | -------- |  |
+                      |                |
+                      |----------------|
+```
+## Try and catch in javascript
+
+Exceptions that get thrown for us
+
+    try{
+        verifyUser();
+    }
+    catch(ex){
+        console.log( "Error caught" )
+        console.log(`Name: ${ex.name}`  )
+        console.log( `Message: ${ex.message}`)
+    }
+
+    console.log("I am still running")
+
+## Throw in javascript
+
+In the function, throw an exception because something went wrong. This will stop the execution of the **function** but the program will keep running
+
+    function verifyUser( username, password ){
+
+        // code here that tries the database
+        throw {name: "Database Error", message: "Could not connect to database"}
+    }
+
+Console shows:
+
+    Exception caught
+    Name: DatabaseError
+    Message: Could not connect to database
+    I am still running
+
+# Debuggers
+
+## Introduction to debuggers
+
+*Few and far between and very rare are those coders, human beings, who can write several hundred instructions, perfectly, the first time.* Grace Hopper, 1995
+
+*The realization came over me with full force that a good part of the remainder of my life was going to spent in finding errors in my own programs* Sir Maurice Vincent Wilkes, 1949
+
+### Definition
+
+**Debugging** is simply the process of removing errors from your code. A **debugger** is a tool that you can use to inspect your program as it is running
+
+### Printing messages vs Debugger
+
+ Print messages, it's very much a kind of manual debugging. An actual debugging tool allows you to do all those things but in a much more controlled and powerful way. So for example you can actually with the debugger change the state of a variable you don't have to just look at it, or you can actually explicitly call a function and see what happens. It gives you a lot more control over the execution of your program when you can have by just using carefully using printing statements.
+
+### Dynamic analysis
+
+Debuggers allow dynamic analysis. we're investigating what's going on when the program is running. The programme is running so it's dynamic, it's changing, it's not static analysis. Static Analysis is when we're looking at source code
+
+## Basic debugging with gdb: breakpoint and inspect
+
+### Prepare a program for debugging
+
+- g++: command that compiles and links a program 
+- -g: flag for the debugger
+- code.pp: input file
+- -o: flog for output
+- debug_me output file
+
+```
+g++ -g code.cpp -o debug_me
+```
+
+C++ Program
+
+```
+# include <iostream>
+
+int x;
+
+void looper()
+{
+    for (int i =0; i < 4; ++i )
+    {
+        printf(" i is %i \n", i)
+        if (i > 2) x++;
+    }
+}
+
+int main()
+{
+    looper();
+    x++;
+    return 0;
+}
+```
+
+### Launch the debugger
+
+    gdb debug_me
+
+Debugger
+
+```
+Reading symbols from debug_me...
+Reading symbols from /Users/Erick/Programs/Tutorials/C++/Others/debug_me.dSYM/Contents/Resources/DWARF/debug_me...
+(gdb) 
+```
+#### Commands:
+
+run: will execute the program
