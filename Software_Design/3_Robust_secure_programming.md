@@ -194,4 +194,107 @@ bandit -ll *.py
 bandit -l *.py
 ```
 
+# Exception Handling
+
+## Different types of errors
+
+### Syntax Error
+
+When we're not following the rules of the language. The rules of the C++ language and most other languages dictate that you cannot have variable names with at signs in and hash signs and things like that
+
+```
+int main()
+{
+    int @!#* = 10;
+
+    return 0'
+}
+```
+
+When **compiling** it returns:
+
+    syntax.cpp5:9: error: start '@' in program
+        int @!#* = 10;
+    syntax.cpp5:11: error: start '#' in program
+        int @!#* = 10;
+    syntax.cpp: In function 'int main()'
+    syntax.cpp:5:10: error: expected unqualified-id before '!' token 
+        int @!#* = 10;
+
+### Compile error
+
+When we're trying to compile or interpret some code, and that doesn't work.
+Syntax errors are a type of compile error, part of the thing that the compiler or interpreter might do is it might check on the code to make sure that it's syntactically correct. But there are other types of errors that go beyond that, but the compiler can pick up. Really depending how sophisticated the compiler or the interpreter is, it might do some fairly deep analysis of our code and gives all warnings and errors.
+
+Example of a compiler error that isn't syntactically incorrect, but the compiler refuses to compile nonetheless
+
+    int test()
+    {
+        return 1;
+    }
+
+    int main()
+    {
+        test(128);
+        return 0;
+    }
+
+When **compiling** it returns:
+
+    syntax.cpp: In function 'int main()':
+    syntax.cpp:11:13: error: too many arguments to function 'int test()'
+        test(128);
+    syntax.cpp:2:5: note: declared here
+        int test()
+
+### Link (build) errors
+
+The way that linking works is you promise a bunch of things. Example: In this library I'm going to have all these functions and they're going to work like this." Then the idea is that hopefully somewhere you're actually going to have an implementation of those functions. The file where we promise all of these things, we call that typically the header file. Then in a separate file, we will actually implement those.
+
+    int test();
+
+    int main()
+    {
+        test();
+        return 0;
+    }
+When **compiling** it returns:
+
+    In function 'main':
+    syntax.cpp: (.text+0x5): undefined reference to 'test()'
+    collect2: error: ld returned 1 exit status
+
+### Non-Errors
+
+When you're using a function in a nonsensical way or doing some nonsensical calculation. It's an error in that we're using it in a nonsensical way, but it's not really an error that anything's going to pick up very easily. That might be where assertions come in.
+
+    int calculateArea(int width, int height)
+    {
+        return width * height;
+    }
+
+    int main()
+    {
+        int area = calculateArea( -10, -12 ) // error
+        return 0
+    }
+
+### Runtime error
+
+This is really when the program is running, it's executing, and it encounters some error that wasn't picked up through the various other phases
+
+    divide (int x, int y)
+    {
+        return x / y;
+    }
+
+    int main()
+    {
+        int div = divide (10, 0);
+        return 0;
+    }
+
+When **running** the program:
+
+    Floating point exception (code dumped)
 
