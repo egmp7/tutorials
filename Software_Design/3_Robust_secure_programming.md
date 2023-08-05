@@ -414,7 +414,7 @@ Debuggers allow dynamic analysis. we're investigating what's going on when the p
 - debug_me output file
 
 ```
-g++ -g code.cpp -o debug_me
+g++ -g <input_file> -o <output_file>
 ```
 
 C++ Program
@@ -428,7 +428,7 @@ void looper()
 {
     for (int i =0; i < 4; ++i )
     {
-        printf(" i is %i \n", i)
+        printf(" i is %i \n", i);
         if (i > 2) x++;
     }
 }
@@ -443,15 +443,31 @@ int main()
 
 ### Launch the debugger
 
-    gdb debug_me
+    gdb <file>
 
-Debugger
 
-```
-Reading symbols from debug_me...
-Reading symbols from /Users/Erick/Programs/Tutorials/C++/Others/debug_me.dSYM/Contents/Resources/DWARF/debug_me...
-(gdb) 
-```
-#### Commands:
+### Commands:
 
-run: will execute the program
+- **run:** will execute the program 
+- **list:** list the contents of the program
+- **break #line_number:**  Adds a break point 
+- **print I:** print a variable
+- **info variables:** lots of variables (all the scope)
+- **info locals:** local variables
+- **info stack:** stack trace (which function we are)
+- **info args:** stack(function) parameters
+- **next:** move to next line in current stack
+- **step:** move to next line, following function calls
+- **continue:** execute to next breakpoint
+
+## Further debugging with gdb: data breakpoint and conditional breakpoint
+
+**Conditional break point:**
+
+    break 9 if i > 2
+
+**Watchpoint:** triggering a break whenever a value changes. We're saying watch x, so keep an eye on x.
+
+    watch x
+
+
