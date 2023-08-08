@@ -193,7 +193,7 @@ EA developed a test method that uses automated testing rather than human testing
 
 ### Definition
 
-The extent to which system product or service can be used by specified users to achieve specified goal with **effectiveness, efficiency amd satisfaction** in a specified context of use
+The extent to which system product or service can be used by **specified users** to achieve specified goal with **effectiveness, efficiency amd satisfaction** in a specified context of use
 
 We are talking about a particular group of users trying to do a particular thing with a system and doing that in a particular context. To give you an example, imagine we want to test the usability of a mobile phone, so maybe when I'm freezing cold and I'm outside and I've got gloves on and I'm trying to make a phone call suddenly the usability is quite different from, if I'm inside and it's warm and I'm using my hands without any gloves.
 
@@ -270,3 +270,37 @@ Questions about:
 10. Help and documentation 
 
 # Accessibility
+
+## What is accessibility
+
+### Definition
+
+Extent to which products, system, services, environments and facilities can be used by **people from a population with the widest range of characteristics and capabilities** to achieve a specified goal in a specified context of use
+
+### Legal requirements
+
+6. Subject to regulation
+7. Public sector bodies must comply with the accessibility requirement
+
+Accessibility requirement: means the requirement to make a website or mobile application by making it **perceivable, operable, understandable and robust**
+
+*Regulation 6 does not require a public sector body to comply with the accessibility requirement if doing so would impose a disproportionate burden on the public sector body*
+
+ In general, is expected that if you're putting something, you're a public body like, local counsel or even a university, if you're putting stuff online, there's an expectation that you will do what you can to make that accessible.
+
+## Considering the range of access requirements
+
+Definition of disability: Long-standing illness, disability or impairment which causes substantial difficulty with day-to-day activities 
+
+**Disabilities:**
+
+- Mobility
+- Stamina/ breathing/ fatigue
+- Dexterity
+- Mental Health
+- Memory
+- Hearing
+- Vision
+- Learning
+- Social/ behavioral
+- Other
