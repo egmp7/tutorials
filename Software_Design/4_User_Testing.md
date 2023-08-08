@@ -183,6 +183,90 @@ ISO form where the user types the results of the test. The test shows an objecti
 
 A generic set of preconditions for doing this, and then with the adaptation that maybe they're logging in as these different users and then they do some quick test
 
+## Sims AI test example
+
+EA developed a test method that uses automated testing rather than human testing. The automated test follows every path possible than a human could do. This test was trough black box by send some data, and retrieving the results. This method is en example on how to test a project based on the requirements.
+
 # Usability testing
+
+## Introduction to usability
+
+### Definition
+
+The extent to which system product or service can be used by specified users to achieve specified goal with **effectiveness, efficiency amd satisfaction** in a specified context of use
+
+We are talking about a particular group of users trying to do a particular thing with a system and doing that in a particular context. To give you an example, imagine we want to test the usability of a mobile phone, so maybe when I'm freezing cold and I'm outside and I've got gloves on and I'm trying to make a phone call suddenly the usability is quite different from, if I'm inside and it's warm and I'm using my hands without any gloves.
+
+### Test it with users
+
+*We can't predict a software system's usability without testing it with real users*
+
+### Effectiveness
+
+Effectiveness is really about were they able to complete the task if you like. If a piece of software allow someone to complete a task
+
+### Efficiency
+
+ How quickly and how easily and how fluid that was. We're going to be thinking about questions around, how easily they move through the interface, and how quickly they learned it, and things like that
+
+### Satisfaction
+
+Satisfaction is almost more difficult to measure than efficiency and effectiveness because it's more about the feelings that they had or they're using it. There's wide a range of things being pulled in. Because if it is efficient and effective they're probably going to be reasonably satisfied but there might be other factors affecting whether they're satisfied or not. Like whether had a nice user interface or they like the color scheme, can be all other things
+
+## Usability metric
+
+### SUS System Usability Scale
+
+Mark from 1 to 5 (Strongly disagree, Strongly agree)
+
+1. I Think that I would like to use the system frequently.
+2. I found the system unnecessarily complex.
+3. I though the system was easy to use.
+4. I think that I would need the support of a technical person to use this system.
+5. I found the various functions of this system were well integrated
+6. I though there was too much inconsistency in this system.
+7.  I would imagine that most people would learn to use this system very quickly.
+8. I foun the system very cumbersome to use.
+9. I felt very confident using the system.
+10. I need to learn a lot of things before I could get going with this system.
+
+### UMUX Usability metric for user experience
+
+A list of less questions than they had in SUS. SUS had got 10 questions, it's a bit laborious, may be for you only get loads of users to complete that questionnaire. UMUX is trying to come up with a shorter list of questions, and there are papers where they've actually empirically validated UMUX's questions
+
+1. [This system's] capabilities meet my requirements.
+2. Using [this system] is a frustrating experience
+3. [This system] is easy to use
+4. I have spend too much time correcting things with [this system]
+
+### Creativity Support Index
+
+This one is different in that it's been designed specifically for the evaluation software tools for doing **creative work** and it's not as widespread as the other two, the other two are mainstream metrics
+
+A different metric which is focused more on creative tools.
+
+Questions about:
+
+- Collaboration
+- Enjoyment
+- Exploration
+- Expressiveness
+- Immersion
+- [Gained] Results Worth [the] Effort
+
+## Usability Principles
+
+### Nielson's 10 principles
+
+1. Visibility of system status
+2. Match between system and the real world
+3. User control and freedom
+4. Consistency and standards
+5. Error prevention
+6. Recognition rather than recall
+7. Flexibility and efficiency of use
+8. Aesthetic and minimalist design
+9. Help users recognize, diagnose, and recover from errors
+10. Help and documentation 
 
 # Accessibility
