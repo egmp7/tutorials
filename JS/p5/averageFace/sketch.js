@@ -1,6 +1,7 @@
 /**
  * Use mouse position to increase the ratio 
- * of the average face.
+ * of the average face and press any key to switch 
+ * main face.
  */
 
 var imgs = [];
