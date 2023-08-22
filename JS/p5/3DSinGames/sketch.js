@@ -9,7 +9,7 @@ function setup() {
     createCanvas(900, 800, WEBGL);
     angleMode(DEGREES);
 
-    // ****** My stars ends here
+    // ****** My code starts here
     //slider
     sliderHeight = createSlider(0, 200, 100,);
     sliderHeight.position(10, 10);
@@ -24,14 +24,14 @@ function setup() {
         confLocs.push(createVector(random(-500,500),random(-800,0),random(-500,500)))
         confTheta.push(random(0,360))
     }
-    // ****** My stars ends here
+    // ****** My code ends here
 }
 
 function draw() {
 
     background(125);
     
-    // ****** My stars starts here
+    // ****** My code starts here
     // camera
     var locX = cos(frameCount) * 800;
     var locZ = sin(frameCount) * 800;
@@ -65,10 +65,10 @@ function draw() {
         }
     }
     pop()
-    // ****** My stars ends here
+    // ****** My code ends here
 }
 
-// ****** My stars starts here
+// ****** My code starts  here
 /**
  * Draws rotating confetti
  */
@@ -89,4 +89,4 @@ function confetti(){
         pop();
     }
 }
-// ****** My ends starts here
+// ****** My code ends here
