@@ -1,13 +1,12 @@
-// ********************************
-// BACKGROUND SUBTRACTION EXAMPLE *
-// ********************************
 var video;
 var prevImg;
 var diffImg;
 var currImg;
 var thresholdSlider;
 var threshold;
+// ****** My code starts here
 var grid;
+// ****** My code ends here
 
 function setup() {
     createCanvas(640 * 2, 480);
@@ -17,20 +16,37 @@ function setup() {
 
     thresholdSlider = createSlider(0, 255, 50);
     thresholdSlider.position(20, 20);
+    // ****** My code starts here
     grid = new Grid(640,480)
+    // ****** My code ends here
 }
 
 function draw() {
     background(0);
     image(video, 0, 0);
 
+    // Current Image
     currImg = createImage(video.width, video.height);
-    currImg.copy(video, 0, 0, video.width, video.height, 0, 0, video.width, video.height);
+    currImg.copy(
+        video, 
+        0, 
+        0, 
+        video.width, 
+        video.height, 
+        0, 
+        0, 
+        video.width, 
+        video.height);
+    // ****** My code starts here
     currImg.filter(BLUR,3);
     currImg.resize(currImg.width/8,0);
+    // ****** My code ends here
 
+    // Different Image
     diffImg = createImage(video.width, video.height);
+    // ****** My code starts here
     diffImg.resize(diffImg.width/8,0);
+    // ****** My code ends here
     diffImg.loadPixels();
 
     threshold = thresholdSlider.value();
@@ -49,7 +65,12 @@ function draw() {
                 var greenBack = prevImg.pixels[index + 1];
                 var blueBack = prevImg.pixels[index + 2];
 
-                var d = dist(redSource, greenSource, blueSource, redBack, greenBack, blueBack);
+                var d = dist(redSource, 
+                    greenSource, 
+                    blueSource, 
+                    redBack, 
+                    greenBack, 
+                    blueBack);
 
                 if (d > threshold) {
                     diffImg.pixels[index + 0] = 0;
@@ -72,15 +93,21 @@ function draw() {
     stroke(255);
     text(threshold, 160, 35);
 
+    // ****** My code starts here
+    // Store previous frame 
     prevImg = createImage(currImg.width, currImg.height);
-    prevImg.copy(currImg, 0, 0, currImg.width, currImg.height, 0, 0, currImg.width, currImg.height);
+    prevImg.copy(
+        currImg, 
+        0, 
+        0, 
+        currImg.width, 
+        currImg.height, 
+        0, 
+        0, 
+        currImg.width, 
+        currImg.height);
     grid.run(diffImg)
-}
-
-function keyPressed() {
-    prevImg = createImage(currImg.width, currImg.height);
-    prevImg.copy(currImg, 0, 0, currImg.width, currImg.height, 0, 0, currImg.width, currImg.height);
-    console.log("saved new background");
+    // ****** My code ends here
 }
 
 // faster method for calculating color similarity which does not calculate root.
