@@ -7,6 +7,7 @@ var diffImg;
 var currImg;
 var thresholdSlider;
 var threshold;
+var grid;
 
 function setup() {
     createCanvas(640 * 2, 480);
@@ -16,6 +17,7 @@ function setup() {
 
     thresholdSlider = createSlider(0, 255, 50);
     thresholdSlider.position(20, 20);
+    grid = new Grid(640,480)
 }
 
 function draw() {
@@ -24,8 +26,11 @@ function draw() {
 
     currImg = createImage(video.width, video.height);
     currImg.copy(video, 0, 0, video.width, video.height, 0, 0, video.width, video.height);
+    currImg.filter(BLUR,3);
+    currImg.resize(currImg.width/8,0);
 
     diffImg = createImage(video.width, video.height);
+    diffImg.resize(diffImg.width/8,0);
     diffImg.loadPixels();
 
     threshold = thresholdSlider.value();
@@ -69,6 +74,7 @@ function draw() {
 
     prevImg = createImage(currImg.width, currImg.height);
     prevImg.copy(currImg, 0, 0, currImg.width, currImg.height, 0, 0, currImg.width, currImg.height);
+    grid.run(diffImg)
 }
 
 function keyPressed() {
