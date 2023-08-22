@@ -1,26 +1,38 @@
+/**
+ * Use mouse position to increase the ratio 
+ * of the average face.
+ */
+
 var imgs = [];
 var avgImg;
 var numOfImages = 30;
+// ****** My code starts here
 var selectedImg = 0;
+// ****** My code ends here
 
 //////////////////////////////////////////////////////////
 function preload() { 
-
+    // ****** My code starts here
     // load images
     for (var i = 0 ; i < numOfImages ; i++){
         var img = `assets/${i}.jpg`
         imgs.push(loadImage(img))
     }
+    // ****** My code ends here
 }
 //////////////////////////////////////////////////////////
 function setup() {
     createCanvas(imgs[0].width*2, imgs[0].height);
     pixelDensity(1);
+    // ****** My code starts here
     avgImg = createGraphics(imgs[0].width,imgs[0].height)
+    // ****** My code ends here
 }
 //////////////////////////////////////////////////////////
 function draw() {
     background(125);
+
+    // ****** My code starts here
     //draw first image
     image(imgs[selectedImg],0,0)
 
@@ -61,7 +73,10 @@ function draw() {
     avgImg.updatePixels()
     image(avgImg,width/2,0)
     noLoop();
+    // ****** My code ends here
 }
+
+// ****** My code starts here
 //////////////////////////////////////////////////////////
 function keyPressed(){
     selectedImg = int(random(0,numOfImages))
@@ -115,4 +130,4 @@ function drawAvgImage(){
     avgImg.updatePixels()
     image(avgImg,width/2,0)
 }
-
+// ****** My code ends here
