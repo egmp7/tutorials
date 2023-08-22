@@ -2,7 +2,7 @@
 // BACKGROUND SUBTRACTION EXAMPLE *
 // ********************************
 var video;
-var backImg;
+var prevImg;
 var diffImg;
 var currImg;
 var thresholdSlider;
@@ -30,8 +30,8 @@ function draw() {
 
     threshold = thresholdSlider.value();
 
-    if (typeof backImg !== 'undefined') {
-        backImg.loadPixels();
+    if (typeof prevImg !== 'undefined') {
+        prevImg.loadPixels();
         currImg.loadPixels();
         for (var x = 0; x < currImg.width; x += 1) {
             for (var y = 0; y < currImg.height; y += 1) {
@@ -40,9 +40,9 @@ function draw() {
                 var greenSource = currImg.pixels[index + 1];
                 var blueSource = currImg.pixels[index + 2];
 
-                var redBack = backImg.pixels[index + 0];
-                var greenBack = backImg.pixels[index + 1];
-                var blueBack = backImg.pixels[index + 2];
+                var redBack = prevImg.pixels[index + 0];
+                var greenBack = prevImg.pixels[index + 1];
+                var blueBack = prevImg.pixels[index + 2];
 
                 var d = dist(redSource, greenSource, blueSource, redBack, greenBack, blueBack);
 
@@ -66,17 +66,20 @@ function draw() {
     noFill();
     stroke(255);
     text(threshold, 160, 35);
+
+    prevImg = createImage(currImg.width, currImg.height);
+    prevImg.copy(currImg, 0, 0, currImg.width, currImg.height, 0, 0, currImg.width, currImg.height);
 }
 
 function keyPressed() {
-    backImg = createImage(currImg.width, currImg.height);
-    backImg.copy(currImg, 0, 0, currImg.width, currImg.height, 0, 0, currImg.width, currImg.height);
+    prevImg = createImage(currImg.width, currImg.height);
+    prevImg.copy(currImg, 0, 0, currImg.width, currImg.height, 0, 0, currImg.width, currImg.height);
     console.log("saved new background");
 }
 
 // faster method for calculating color similarity which does not calculate root.
 // Only needed if dist() runs slow
-function distSquared(x1, y1, z1, x2, y2, z2){
-  var d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1) + (z2-z1)*(z2-z1);
-  return d;
+function distSquared(x1, y1, z1, x2, y2, z2) {
+    var d = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1);
+    return d;
 }
