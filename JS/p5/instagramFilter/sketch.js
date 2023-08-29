@@ -1,16 +1,21 @@
 // Image of Husky Creative commons from Wikipedia:
 // https://en.wikipedia.org/wiki/Dog#/media/File:Siberian_Husky_pho.jpg
 /**
- * Instagram Filter app, radio buttons where 
- * added to apply the effects of each filter.
- * Also two selectors were added to the application.
- * The first selector picks a set of constants that 
- * affect the color of the filter. Please, ensure that Sepia filter
- * is selected to notice the different colors
- * The second selector chooses a type of matrix, and
- * creates different blurs. Please, ensure that
- * Radiu Blur Filter is selected to notice the different
- * blurs.
+ * Instagram Filter app. 
+ * An application that processes pixels of a source image.
+ * The user can apply color filters, dark corners effects, 
+ * radial blur filters and borders.
+ * 
+ * The radio buttons under 'General Tasks' let the user 
+ * apply each effect into the source image,the changes 
+ * can be noticed in real time
+ * 
+ * The selectors control the filter color and the radial 
+ * blur matrix respectively. Play with each selector to 
+ * notice the changes
+ * 
+ * Finally, the sliders control the border Weight, and 
+ * the dark corner radius respectively
  */
 
 var imgIn;
@@ -20,6 +25,7 @@ var imgIn;
  **************************/
 var checkboxes={}
 var borderSlider;
+var darkCornersSlider;
 var matrixSelector;
 var matrix = [[
     [1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64],
@@ -70,6 +76,11 @@ function setup() {
      * My code starts here
      **************************/
 
+	createP('Instagram Filter app. An application that processes pixels of a source image. The user can apply color filters, dark corners effects, radial blur filters and borders.')
+	createP('The radio buttons under "General Tasks" let the user apply each effect into the source image,the changes can be noticed in real time')
+	createP('The selectors control the filter color and the radial blur matrix respectively. Play with each selector to notice the changes')
+	createP('Finally, the sliders control the border Weight, and the dark corner radius respectively')
+
 	// checkboxes
 	createP('General tasks:')
     checkboxes.sepiaFilter = createCheckbox('Sepia Filter', false)
@@ -98,9 +109,15 @@ function setup() {
 	matrixSelector.option('4 x 4',2);
 	matrixSelector.changed( matrixSelectorEvent );
 
+	// border Slider
 	createP('Border Weight');
 	borderSlider = createSlider(18, 54, 20);
-	borderSlider.changed(borderSliderEvent)
+	borderSlider.changed(borderSliderEvent);
+
+	// dark corner Slider
+	createP('Dark corner radius');
+	darkCornersSlider = createSlider(200, 400, 300);
+	darkCornersSlider.changed(darkCornersSliderEvent)
 
     /**************************
      * My code ends here
@@ -202,6 +219,7 @@ function sepiaFilter(img){
 function darkCorners(img){
 	var imgOut = createImage(img.width, img.height);
 	const maxDistanceFromCenter = dist(0,0,img.width/2,img.height/2)
+	const darkerDistance = 150;
 	img.loadPixels();
 	imgOut.loadPixels();
 
@@ -220,16 +238,25 @@ function darkCorners(img){
 		var dynLum;
 
 		// dark at 300 points from center
-		if (distanceFromCenter >= 300){
-			dynLum = map(distanceFromCenter,300,450,1,0.4);
+		if (distanceFromCenter >= darkCornersSlider.value()){
+			dynLum = map(distanceFromCenter,
+				darkCornersSlider.value(),
+				darkCornersSlider.value()+ darkerDistance,
+				1,
+				0.4);
 			r = r * dynLum;
 			g = g * dynLum;
 			b = b * dynLum;
 		}
 
 		//dark at 450 points from center
-		else if (distanceFromCenter >= 450){
-			dynLum = map(distanceFromCenter,450,maxDistanceFromCenter,0.4,0);
+		else if (distanceFromCenter >= darkCornersSlider.value()+darkerDistance){
+			dynLum = map(
+				distanceFromCenter,
+				darkCornersSlider.value()+darkerDistance,
+				maxDistanceFromCenter,
+				0.4,
+				0);
 			r = r * dynLum;
 			g = g * dynLum;
 			b = b * dynLum;
@@ -327,12 +354,8 @@ function mousePressed(){ loop(); }
 function filterSelectorEvent(){ loop()}
 function matrixSelectorEvent(){ loop()}
 function borderSliderEvent(){loop()}
+function darkCornersSliderEvent(){loop()}
 
 /**************************
  * My code ends here
  **************************/
-
-
-
-
-
