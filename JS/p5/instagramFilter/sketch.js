@@ -19,7 +19,7 @@ var imgIn;
  * My code starts here
  **************************/
 var checkboxes={}
-
+var borderSlider;
 var matrixSelector;
 var matrix = [[
     [1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64, 1/64],
@@ -96,6 +96,10 @@ function setup() {
 	matrixSelector.option('3 x 3',1);
 	matrixSelector.option('4 x 4',2);
 	matrixSelector.changed( matrixSelectorEvent );
+
+	createP('Border Weight');
+	borderSlider = createSlider(18, 54, 20);
+	borderSlider.changed(borderSliderEvent)
 
     /**************************
      * My code ends here
@@ -301,7 +305,7 @@ function borderFilter(img){
 	buffer.image(img,0,0);
 	
 	// rounded border
-	var weight = 20;
+	var weight = borderSlider.value();
 	buffer.strokeWeight(weight)
 	buffer.stroke(255);
 	buffer.fill(0,0,0,0);
@@ -321,6 +325,7 @@ function borderFilterEvent(){ loop(); }
 function mousePressed(){ loop(); }
 function colorSelectorEvent(){ loop()}
 function matrixSelectorEvent(){ loop()}
+function borderSliderEvent(){loop()}
 
 /**************************
  * My code ends here
