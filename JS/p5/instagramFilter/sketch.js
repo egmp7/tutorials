@@ -41,7 +41,7 @@ var matrix = [[
 	[1/16, 1/16, 1/16, 1/16]
 ]];
 
-var colorSelector;
+var filterSelector;
 var colors=[[	.393, .769, .189, 
 				.349, .686, .168,
 				.272, .534, .131],
@@ -71,6 +71,7 @@ function setup() {
      **************************/
 
 	// checkboxes
+	createP('General tasks:')
     checkboxes.sepiaFilter = createCheckbox('Sepia Filter', false)
 	checkboxes.sepiaFilter.changed( sepiaFilterEvent )
 	checkboxes.darkCorners = createCheckbox('Dark Corners', false)
@@ -81,13 +82,13 @@ function setup() {
 	checkboxes.borderFilter.changed( borderFilterEvent )
 
 	// color selector
-	createP('Color Selector')
-	colorSelector = createSelect();
-	colorSelector.option('Old filter', 0);
-	colorSelector.option('Weird filter', 1);
-	colorSelector.option('Crescendo filter', 2);
-	colorSelector.option('Stable filter', 3);
-	colorSelector.changed( colorSelectorEvent );
+	createP('Filter Selector')
+	filterSelector = createSelect();
+	filterSelector.option('Sepia filter', 0);
+	filterSelector.option('Weird filter', 1);
+	filterSelector.option('Crescendo filter', 2);
+	filterSelector.option('Stable filter', 3);
+	filterSelector.changed( filterSelectorEvent );
 
 	// matrix selector
 	createP('Matrix Selector')
@@ -178,7 +179,7 @@ function sepiaFilter(img){
         var oldB = img.pixels[index + 1];
 
         // create new RGB colors
-		var v = colorSelector.value()
+		var v = filterSelector.value()
         var newR = (oldR * colors[v][0]) + (oldG * colors[v][1]) + (oldB * colors[v][2]);
         var newG = (oldR * colors[v][3]) + (oldG * colors[v][4]) + (oldB * colors[v][5]);
         var newB = (oldR * colors[v][6]) + (oldG * colors[v][7]) + (oldB * colors[v][8]);
@@ -323,7 +324,7 @@ function darkCornersEvent(){ loop(); }
 function radialBlurFilterEvent(){ loop(); }
 function borderFilterEvent(){ loop(); }
 function mousePressed(){ loop(); }
-function colorSelectorEvent(){ loop()}
+function filterSelectorEvent(){ loop()}
 function matrixSelectorEvent(){ loop()}
 function borderSliderEvent(){loop()}
 
