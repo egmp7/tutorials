@@ -1,14 +1,14 @@
 // Image of Husky Creative commons from Wikipedia:
 // https://en.wikipedia.org/wiki/Dog#/media/File:Siberian_Husky_pho.jpg
 /**
- * Instagram Filter app. 
+ * Instagram Filter app: 
  * An application that processes pixels of a source image.
  * The user can apply color filters, dark corners effects, 
  * radial blur filters and borders.
  * 
- * The radio buttons under 'General Tasks' let the user 
- * apply each effect into the source image,the changes 
- * can be noticed in real time
+ * The radio buttons under 'General Tasks' apply the desired 
+ * effect to the target image, the changes can be noticed 
+ * in real time.
  * 
  * The selectors control the filter color and the radial 
  * blur matrix respectively. Play with each selector to 
@@ -76,20 +76,20 @@ function setup() {
      * My code starts here
      **************************/
 
-	createP('Instagram Filter app. An application that processes pixels of a source image. The user can apply color filters, dark corners effects, radial blur filters and borders.')
-	createP('The radio buttons under "General Tasks" let the user apply each effect into the source image,the changes can be noticed in real time')
+	createP('Instagram Filter app: An application that processes pixels of a source image. The user can apply color filters, dark corners effects, radial blur filters and borders.')
+	createP("The radio buttons under 'General Tasks' apply the desired effect to the target image, the changes can be noticed in real time.")
 	createP('The selectors control the filter color and the radial blur matrix respectively. Play with each selector to notice the changes')
 	createP('Finally, the sliders control the border Weight, and the dark corner radius respectively')
 
 	// checkboxes
 	createP('General tasks:')
-    checkboxes.sepiaFilter = createCheckbox('Sepia Filter', false)
+    checkboxes.sepiaFilter = createCheckbox('Sepia Filter', true)
 	checkboxes.sepiaFilter.changed( sepiaFilterEvent )
-	checkboxes.darkCorners = createCheckbox('Dark Corners', false)
+	checkboxes.darkCorners = createCheckbox('Dark Corners', true)
 	checkboxes.darkCorners.changed( darkCornersEvent )
-	checkboxes.radialBlurFilter = createCheckbox('Radial Blur Filter', false)
+	checkboxes.radialBlurFilter = createCheckbox('Radial Blur Filter', true)
 	checkboxes.radialBlurFilter.changed ( radialBlurFilterEvent )
-	checkboxes.borderFilter = createCheckbox('Border Filter', false)
+	checkboxes.borderFilter = createCheckbox('Border Filter', true)
 	checkboxes.borderFilter.changed( borderFilterEvent )
 
 	// color selector
