@@ -6,7 +6,9 @@ Other methods of coding involve you writing code, running the code, finding a bu
 
 # Laws of Test Driven Development (TDD)
 
-![](/Software_Design/assets/laws.png)
+1. You may not write production code unless you have first written a failing unit test
+2. You may not write more of a unit test than is sufficient to fail
+3. You may not write more production code than is sufficient to make the failing unit test pass
 
 # What to test 
 
