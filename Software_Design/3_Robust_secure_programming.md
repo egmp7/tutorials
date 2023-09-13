@@ -73,16 +73,30 @@ One post-incident review concluded that "This loss of information was due to spe
 ```
 #include <cassert>
 ```
+```
+double sensorReading = 65537;
+unsigned short storedValue = sensorReading;
 
-![](/Software_Design/assets/2.png)
-
+assert(storedValue == sensorReading);
+```
 ## Python
 
-![](/Software_Design/assets/1.png)
+```
+sensortReading = 6500
+storedValue = sensorReading +1
+assert(storedValue == sensorReading)
+```
+
 
 ## Javascript
 
-![](/Software_Design/assets/3.png)
+```
+var assert = require ("assert);
+
+var sensorReading = 6500
+var storedValue = sensorReading
+assert(storedValue == sensorReading)
+```
 
 # Secure Programming 
 
@@ -104,43 +118,63 @@ According to Wheeler, availability means 'the assets are accessible to the autho
 
 - Restrict operation to buffer bounds
 
-- Follow good security design patterns 
+- Follow good security design patterns;
 
-![](/Software_Design/assets/4.png)
+    - Least privilege
+    - Economy of mechanism/ Simplicity
+    - Open design
+    - Complete mediation: check every access
+    - Failsafe defaults
+    - Separation of privilege
+    - Least common mechanism
+    - Psychological acceptability / Easy to use
+
 
 - Carefully call out to other resources
 
-![](/Software_Design/assets/5.png)
+    - Library Routines 
+    - Databases
+    - External programs
+    - Files
 
 - Send information back judiciously This one is all about being careful about what it is, you send back to the user. Your program might be privy to all kinds of information. Some of it may not belong to the user. You got to be really careful about what it is you sending back, and you might reveal information about your program and stuff like that.
 
 # Software Development Lifecycle (SDLC)
 
-Is a structure for the various software development activities to be performed within a project
+- Is a structure for the various software development activities to be performed within a project
 
-![](/Software_Design/assets/6.png)
+- The Security Development Lifecycle (SDL) consists of a set of practices that support assurance and compliance requirements. The SDL help developers build more secure software by reducing the numbers and severity of vulnerabilities in software, while reducing development cost
 
 # Practices
 
-![](/Software_Design/assets/7.png)
+1. Provide Training
+2. Define Security Requirements
+3. Define Metrics and Compliance Reporting
+4. Perform Threat Modeling
+5. Establish Design Requirements
+6. Define and Use Cryptography Standards
+7. Manage the Security Risk of Using Third-Party Components
+8. Use Approved Tools
+9. Perform Static Analysis Security Testing (SAST)
+10. Perform Dynamic Analysis Security Testing (DAST)
+11. Perform Penetration testing
+12. Establish a Standard Incident Response Process
 
-## Practice 7
+## Practice 7 Manage the Security Risk of Using Third-Party Components
 
-![](/Software_Design/assets/8.png)
-
-### Sub-practice 1
+### Sub-practice 1 Inventory
 
 Establish a list of things that we're using
 
-### Sub-practice 2
+### Sub-practice 2 Perform Security Analysis
 
 You should certainly be considering doing testing to a third party if it hasn't been done already
 
-### Sub-practice 3
+### Sub-practice 3 Keep Up to date
 
 The minimum is to know what the list is that you're using and to make sure that those are kept up to date, and then additionally, you should have done some sort of analysis on those packages before you use them
 
-## Practice 8
+## Practice 8 Use Approved Tools
 
 Current list of approved tools contains mainly Microsoft-centric tools
 
@@ -152,7 +186,7 @@ Current list of approved tools contains mainly Microsoft-centric tools
 
 Looking at the tool chain that you're using and making sure you know what they are. For instance, an inventory of the tools would be, which tools you're using? A security analysis would be, are they considered secure, has anyone else evaluated them in the past? And thirdly, are your tools up to date?
 
-## Practice 9 
+## Practice 9 Perform Static Analysis Security Testing (SAST)
 
 Static versus dynamic analysis. 
 
@@ -166,17 +200,23 @@ Piece of software running and we want to know whether it's secure or not. Exploi
 
 # Other Schemes 
 
-![](/Software_Design/assets/9.png)
+## SAMM
 
-Looking at what your organization is doing and developing some awareness of the kind of risks that your specific organization might face based on what it is that you're developing or the particular project you're working on
+- The software Assurance Maturity Model (SAMM) is an open framework to help organizations formulate and implement a strategy for software security that is tailored to te specific risks facing the organization
 
-![](/Software_Design/assets/10.png)
+- Looking at what your organization is doing and developing some awareness of the kind of risks that your specific organization might face based on what it is that you're developing or the particular project you're working on
 
-It's about researching what are the practices that are going on in industry around security and summarizing those, producing reports, and so that people can go and, okay, what's the general trends? What are the trends that are going on here? I guess it's more reactive. It can react to what's going on in industry as new technologies come along so new knowledge can be added.
+## BSIMM
 
-![](/Software_Design/assets/11.png)
+- The Building Security In Maturity Model (BSIMM) is a study of existing software security initiatives. By quantifying the practices of many different organizations, we can describe the common ground share by many as well as the variations that make each unique
 
-It's about, you've just started, before you get too far into this, what you're going to do? How do you embed security into your process? How many errors and flaws does that generate? It also focuses on web development
+- It's about researching what are the practices that are going on in industry around security and summarizing those, producing reports, and so that people can go and, okay, what's the general trends? What are the trends that are going on here? I guess it's more reactive. It can react to what's going on in industry as new technologies come along so new knowledge can be added.
+
+## CLASP / OWASP
+
+- CLASP is designed to help software development teams build security into the early stages of existing and new-start software development life cycles in a structured, repeatable, and measurable way
+
+- It's about, you've just started, before you get too far into this, what you're going to do? How do you embed security into your process? How many errors and flaws does that generate? It also focuses on web development
 
 # Bandit
 
