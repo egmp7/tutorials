@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Mounted on Player
-public class PlayerMovement : MonoBehaviour
+public class RigidBodyAndTransformMovement : MonoBehaviour
 {
+    [SerializeField] float movementSpeed;
+    
     Camera cam;
     Rigidbody rb;
-    [SerializeField]
-    float movementSpeed;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Move towards mouse point using Transform
         // Vector2 mousePos = Input.mousePosition;
         // Vector3 worldPoint = new Vector3(mousePos.x, mousePos.y, cam.transform.position.y - transform.position.y);
         // Vector3 target = cam.ScreenToWorldPoint(worldPoint);
@@ -30,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Move towards mouse point using Rigid Body
         float forward = Input.GetAxisRaw("Vertical");
         float side = Input.GetAxisRaw("Horizontal");
 
@@ -40,6 +40,5 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
-
     }
 }
