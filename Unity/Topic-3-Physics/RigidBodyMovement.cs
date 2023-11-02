@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Mounted On Bullet
-public class BulletMoving : MonoBehaviour
+public class RigidBodyMovement : MonoBehaviour
 {
-    [SerializeField]
-    float force;
+    [SerializeField] float force;
     Rigidbody rb;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
