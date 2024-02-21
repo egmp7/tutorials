@@ -2,7 +2,8 @@ Shader "Unlit/shader1"
 {
     Properties
     {
-        _Value("Value", Float) = 1.0
+        _Scale("Scale",float) = 1.0
+        _Offset("Offset",float) = 0.0
     }
     SubShader
     {
@@ -16,29 +17,36 @@ Shader "Unlit/shader1"
 
             #include "UnityCG.cginc"
 
-            float _Value;
+            float _Scale;
+            float _Offset;
 
             struct MeshData // per vertex mesh data
             {
                 float4 vertex : POSITION;
-                //float2 uv : TEXCOORD0;
+                float3 normal: NORMAL;
+                float4 uv0 : TEXCOORD0;
             };
 
             struct Interpolator
             {
                 float4 vertex : SV_POSITION;  // clip space position
+                float3 normal : TEXCOORD0;
+                float2 uv0 : TEXCOORD1;
             };
 
             Interpolator vert (MeshData v)
             {
                 Interpolator o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
+                o.normal = UnityObjectToWorldNormal( v.normal);
+                o.uv0 = (v.uv0 + _Offset) * _Scale;
+                //o.vertex = v.vertex;
                 return o;
             }
 
             float4 frag (Interpolator i) : SV_Target
             {
-                return float4( 1, 0, 0, 1 ) ;
+                return float4( i.uv0,0, 1) ;
             }
             ENDCG
         }
