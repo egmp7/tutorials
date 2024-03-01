@@ -60,15 +60,15 @@ Shader "Unlit/peer2"
                 float3 L = normalize(_WorldSpaceLightPos0.xyz);
                 float3 N = normalize(i.normal.xyz);
                 float nl = max(0,dot(N,L));
+                nl = step(0.1, nl); // cartoonish
                 float4 diffuse = nl * _LightColor0;
 
                 // specular
                 float3 E = normalize( _WorldSpaceCameraPos.xyz - i.worldPos.xyz);
                 float3 H = reflect( -L, N );
-                //float3 H = (E + L) / length(E+L);
                 float sl = pow(max(0,dot(H,E)),_Smoothness);
+                sl = step(0.1,sl); // cartoonish
                 float4 specular = sl * _LightColor0;
-                //return float4 (H,1);
 
                 return  _Color * (diffuse + ambient + specular );
             }
